@@ -190,8 +190,8 @@ export default function TrustBar() {
       if (layoutData.length === 0) return;
 
       // --- CONFIGURABLE: Set expansion limit here ---
-      // 1.0 means mobile items expand completely into their designated rows to prevent clumping
-      const expansionFactor = isMobile ? 1.0 : 1.16; 
+      // 1.0 means items unfold exactly into their grid positions
+      const expansionFactor = 1.0; 
 
       const hintOpacity = Math.max(0, 1 - scrollProgress * 5);
       if (scrollHint) {
