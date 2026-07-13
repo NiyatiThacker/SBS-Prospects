@@ -2,9 +2,20 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export default function Footer() {
+  const pathname = usePathname();
   const [phoneCopied, setPhoneCopied] = useState(false);
+
+  const handleLinkClick = (href: string) => {
+    const targetPath = href.split('#')[0];
+    if (pathname === targetPath) {
+      if (!href.includes('#')) {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+    }
+  };
 
   const handlePhoneClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     // Detect mobile or tablet screens
@@ -347,19 +358,22 @@ export default function Footer() {
           <div className="sbs-footer-brand-col">
             {/* Logo — natural size, no whitespace */}
             <div className="sbs-footer-logo-wrap">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/logo/Sbs-2.png"
-                alt="SBS Prospects"
-                width={220}
-                height={72}
-                style={{
-                  width: "220px",
-                  height: "auto",
-                  objectFit: "contain",
-                }}
-                loading="eager"
-              />
+              <Link href="/" onClick={() => handleLinkClick("/")}>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/logo/Sbs-2.png"
+                  alt="SBS Prospects"
+                  width={220}
+                  height={72}
+                  style={{
+                    width: "220px",
+                    height: "auto",
+                    objectFit: "contain",
+                    cursor: "pointer",
+                  }}
+                  loading="eager"
+                />
+              </Link>
             </div>
 
             <span style={{ fontSize: "9px", letterSpacing: "0.28em", textTransform: "uppercase", color: "#735c00", display: "block", marginBottom: "16px", fontWeight: 500 }}>
@@ -403,7 +417,7 @@ export default function Footer() {
               { label: "HR Consultancy", href: "/services#hr-consultancy" },
               { label: "Contact", href: "/contact" },
             ].map((link) => (
-              <Link key={link.label} href={link.href} className="sbs-footer-link">{link.label}</Link>
+              <Link key={link.label} href={link.href} onClick={() => handleLinkClick(link.href)} className="sbs-footer-link">{link.label}</Link>
             ))}
           </div>
 
@@ -414,7 +428,7 @@ export default function Footer() {
               <span style={{ position: "absolute", bottom: 0, left: 0, width: "22px", height: "1px", background: "#e9c349", display: "block" }} />
             </span>
             {["Career Programs", "Placement Assistance", "Internship Support", "Industry Based Training", "Live Projects", "Expert Trainers", "HR & Consultancy"].map((item) => (
-              <Link key={item} href="/services" className="sbs-footer-link">{item}</Link>
+              <Link key={item} href="/services" onClick={() => handleLinkClick("/services")} className="sbs-footer-link">{item}</Link>
             ))}
           </div>
 
