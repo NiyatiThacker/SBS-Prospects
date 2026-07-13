@@ -102,13 +102,6 @@ const NavbarSection: React.FC = () => {
           );
         })}
 
-        <Link
-          href="/contact"
-          onClick={() => setMenuOpen(false)}
-          className="border border-black px-6 py-3 text-sm font-bold uppercase tracking-[0.08em] hover:bg-black hover:text-white"
-        >
-          Contact Us
-        </Link>
       </div>
     </nav>
   );
