@@ -474,37 +474,7 @@ export default function AboutCTA() {
               }}>{para.text}</p>
             ))}
 
-            {/* Buttons */}
-            <div style={{
-              display:"flex", flexDirection:"column", gap:10, marginTop:36,
-              opacity:active?1:0, transform:active?"translateY(0)":"translateY(14px)",
-              transition:"opacity .5s .85s, transform .5s .85s",
-            }}>
-              {[
-                { label:"Read Our Full Story", primary:true  },
-                { label:"Meet The Team",       primary:false },
-              ].map((b,i) => (
-                <button
-                  key={i} className="sbs-btn"
-                  onMouseEnter={onEnter} onMouseLeave={onLeave}
-                  style={{
-                    display:"flex", alignItems:"center", justifyContent:"space-between",
-                    width:"100%", padding:"15px 22px",
-                    border: b.primary?"none":"1px solid rgba(26,26,26,.2)",
-                    background: b.primary?"#1A1A1A":"transparent",
-                    color: b.primary?"#F5F0E8":"#1A1A1A",
-                    fontFamily:"'DM Sans',sans-serif",
-                    fontSize:"clamp(9px, 1vw, 11px)",
-                    letterSpacing:".14em", textTransform:"uppercase", fontWeight:500,
-                    transition:"color .3s, border-color .3s",
-                  }}
-                >
-                  <div className="sbs-btn-bg" style={{ background:b.primary?"#C9A84C":"rgba(201,168,76,.12)" }}/>
-                  <span style={{ position:"relative", zIndex:1 }}>{b.label}</span>
-                  <span className="sbs-btn-arr" style={{ position:"relative", zIndex:1, fontSize:15 }}>→</span>
-                </button>
-              ))}
-            </div>
+
           </div>
 
           {/* ── CENTER: Founder image ── */}
