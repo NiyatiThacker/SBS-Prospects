@@ -6,6 +6,7 @@ const services = [
   {
     number: "1",
     title: "INDUSTRY TRAINING PROGRAMS",
+    image: "/images/services/industry_training.png",
     description:
       "Equip yourself with practical, domain-specific skills designed to match the current demands of top corporate recruiters.",
     features: [
@@ -17,6 +18,7 @@ const services = [
   {
     number: "2",
     title: "MBA SKILL DEVELOPMENT COURSES",
+    image: "/images/services/mba_skills.png",
     description:
       "Bridge academic frameworks with real-world corporate execution. Develop core skills in presentation and management.",
     features: [
@@ -28,6 +30,7 @@ const services = [
   {
     number: "3",
     title: "HR CONSULTANCY",
+    image: "/images/services/hr_consultancy.png",
     description:
       "Align organizational staffing needs with high-performance team building and strategic onboarding.",
     features: [
@@ -39,6 +42,7 @@ const services = [
   {
     number: "4",
     title: "CAREER GUIDANCE",
+    image: "/images/services/career_guidance.png",
     description:
       "Navigate your professional journey with expert advice, pathway mapping, and customized mentorship.",
     features: [
@@ -50,6 +54,7 @@ const services = [
   {
     number: "5",
     title: "RECRUITMENT SUPPORT",
+    image: "/images/services/recruitment_support.png",
     description:
       "End-to-end assistance for corporate hiring drives, placement events, and interview simulations.",
     features: [
@@ -61,6 +66,7 @@ const services = [
   {
     number: "6",
     title: "INTERNSHIP PROGRAMS",
+    image: "/images/services/internship_programs.png",
     description:
       "Gain hands-on corporate experience, execute active workflows, and earn industry-certified credentials.",
     features: [
@@ -293,22 +299,45 @@ export default function ServicesSection() {
                   flexShrink: 0,
                   height: "320px",
                   border: "1px solid #C8BFB5",
-                  backgroundColor: "transparent",
+                  backgroundColor: "#FBF8F3",
                   display: "flex",
-                  alignItems: "flex-start",
-                  padding: "12px 14px",
+                  flexDirection: "column",
+                  alignItems: "stretch",
+                  position: "relative",
                   order: isEven ? 1 : 2,
+                  overflow: "hidden",
                 }}
               >
-                <span
+                <div style={{ position: "relative", flex: 1, width: "100%", height: "100%" }}>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={service.image}
+                    alt={service.title}
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                    }}
+                  />
+                </div>
+                <div
                   style={{
-                    fontSize: "0.75rem",
-                    color: "#8A7060",
-                    fontFamily: "'Inter', sans-serif",
+                    padding: "8px 12px",
+                    borderTop: "1px solid #C8BFB5",
+                    backgroundColor: "#FFFFFF",
                   }}
                 >
-                  {service.title}
-                </span>
+                  <span
+                    style={{
+                      fontSize: "0.68rem",
+                      color: "#8A7060",
+                      fontWeight: 600,
+                      fontFamily: "'Inter', sans-serif",
+                    }}
+                  >
+                    {service.title}
+                  </span>
+                </div>
               </div>
             </div>
           </div>
