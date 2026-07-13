@@ -79,16 +79,76 @@ const glassPanelStyle: CSSProperties = {
 export default function ContactForm() {
   const [form, setForm] = useState<FormState>(initialForm);
   const [status, setStatus] = useState<"idle" | "sending" | "sent">("idle");
+  const [errors, setErrors] = useState<Partial<FormState>>({});
 
   function handleChange(
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) {
     const { name, value } = e.target;
+
+    if (name === "phone") {
+      const numericValue = value.replace(/[^0-9]/g, "");
+      if (numericValue.length <= 10) {
+        setForm((prev) => ({ ...prev, [name]: numericValue }));
+        if (numericValue.length === 10) {
+          setErrors((prev) => ({ ...prev, phone: undefined }));
+        }
+      }
+      return;
+    }
+
+    if (value.trim() !== "") {
+      setErrors((prev) => ({ ...prev, [name]: undefined }));
+    }
+
     setForm((prev) => ({ ...prev, [name]: value }));
+  }
+
+  function validateForm(): boolean {
+    const tempErrors: Partial<FormState> = {};
+    let isValid = true;
+
+    if (!form.name.trim()) {
+      tempErrors.name = "Name is required.";
+      isValid = false;
+    } else if (form.name.trim().length < 2) {
+      tempErrors.name = "Name must be at least 2 characters.";
+      isValid = false;
+    }
+
+    if (!form.email.trim()) {
+      tempErrors.email = "Email is required.";
+      isValid = false;
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email.trim())) {
+      tempErrors.email = "Please enter a valid email address.";
+      isValid = false;
+    }
+
+    if (!form.phone.trim()) {
+      tempErrors.phone = "Phone number is required.";
+      isValid = false;
+    } else if (form.phone.trim().length !== 10) {
+      tempErrors.phone = "Phone number must be exactly 10 digits.";
+      isValid = false;
+    }
+
+    if (!form.message.trim()) {
+      tempErrors.message = "Message is required.";
+      isValid = false;
+    } else if (form.message.trim().length < 10) {
+      tempErrors.message = "Message must be at least 10 characters.";
+      isValid = false;
+    }
+
+    setErrors(tempErrors);
+    return isValid;
   }
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    if (!validateForm()) {
+      return;
+    }
     setStatus("sending");
 
     const scriptUrl = process.env.NEXT_PUBLIC_CONTACT_SCRIPT_URL;
@@ -102,7 +162,6 @@ export default function ContactForm() {
     }
 
     try {
-      // Temporarily removed mode: "no-cors" so we can read the server's error message
       const response = await fetch(scriptUrl, {
         method: "POST",
         headers: {
@@ -120,10 +179,11 @@ export default function ContactForm() {
       if (data.status === "success") {
         setStatus("sent");
         setForm(initialForm);
+        setErrors({});
       } else {
         console.error("Server Error:", data.error);
         setStatus("idle");
-        alert("Google Sheets Error: " + data.error); // This will show the exact error!
+        alert("Google Sheets Error: " + data.error);
       }
     } catch (error) {
       console.error("Fetch Error:", error);
@@ -245,7 +305,7 @@ export default function ContactForm() {
                 gap: "1.5rem",
               }}
             >
-              <Field label="Name" required>
+              <Field label="Name" required error={errors.name}>
                 <input
                   type="text"
                   name="name"
@@ -253,30 +313,31 @@ export default function ContactForm() {
                   onChange={handleChange}
                   placeholder="Name"
                   required
-                  style={inputStyle}
+                  style={{ ...inputStyle, borderColor: errors.name ? "#DC2626" : "#D1D5DB" }}
                 />
               </Field>
-              <Field label="Company">
+              <Field label="Company" error={errors.company}>
                 <input
                   type="text"
                   name="company"
                   value={form.company}
                   onChange={handleChange}
                   placeholder="Company"
-                  style={inputStyle}
+                  style={{ ...inputStyle, borderColor: errors.company ? "#DC2626" : "#D1D5DB" }}
                 />
               </Field>
-              <Field label="Phone">
+              <Field label="Phone" required error={errors.phone}>
                 <input
                   type="tel"
                   name="phone"
                   value={form.phone}
                   onChange={handleChange}
                   placeholder="Phone"
-                  style={inputStyle}
+                  required
+                  style={{ ...inputStyle, borderColor: errors.phone ? "#DC2626" : "#D1D5DB" }}
                 />
               </Field>
-              <Field label="Email" required>
+              <Field label="Email" required error={errors.email}>
                 <input
                   type="email"
                   name="email"
@@ -284,26 +345,26 @@ export default function ContactForm() {
                   onChange={handleChange}
                   placeholder="Email"
                   required
-                  style={inputStyle}
+                  style={{ ...inputStyle, borderColor: errors.email ? "#DC2626" : "#D1D5DB" }}
                 />
               </Field>
             </div>
 
             <div style={{ marginTop: "1.5rem" }}>
-              <Field label="Subject">
+              <Field label="Subject" error={errors.subject}>
                 <input
                   type="text"
                   name="subject"
                   value={form.subject}
                   onChange={handleChange}
                   placeholder="Subject"
-                  style={inputStyle}
+                  style={{ ...inputStyle, borderColor: errors.subject ? "#DC2626" : "#D1D5DB" }}
                 />
               </Field>
             </div>
 
             <div style={{ marginTop: "1.5rem" }}>
-              <Field label="Message" required>
+              <Field label="Message" required error={errors.message}>
                 <textarea
                   name="message"
                   value={form.message}
@@ -311,7 +372,11 @@ export default function ContactForm() {
                   placeholder="Message"
                   required
                   rows={6}
-                  style={{ ...inputStyle, resize: "vertical" }}
+                  style={{
+                    ...inputStyle,
+                    resize: "vertical",
+                    borderColor: errors.message ? "#DC2626" : "#D1D5DB",
+                  }}
                 />
               </Field>
             </div>
@@ -359,10 +424,12 @@ function Field({
   label,
   required,
   children,
+  error,
 }: {
   label: string;
   required?: boolean;
   children: React.ReactNode;
+  error?: string;
 }) {
   return (
     <label style={{ display: "block" }}>
@@ -375,6 +442,11 @@ function Field({
         )}
       </span>
       {children}
+      {error && (
+        <span style={{ display: "block", marginTop: "0.35rem", fontSize: "0.75rem", color: "#DC2626", fontWeight: 500 }}>
+          {error}
+        </span>
+      )}
     </label>
   );
 }
