@@ -46,7 +46,7 @@ export default function AboutSnippet() {
   /* ── Count-up ── */
   useEffect(() => {
     if (!active) return;
-    const targets = { years: 15, clients: 2000, assets: 500, retention: 98 };
+    const targets = { years: 6, clients: 1500, assets: 50, retention: 95 };
     const duration = 1800;
     const start = performance.now();
     let rafId: number;
@@ -245,6 +245,107 @@ export default function AboutSnippet() {
         /* ── award dot ── */
         @keyframes sbsDotPulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.4;transform:scale(.7)} }
         .sbs-award-dot { animation:sbsDotPulse 2s ease infinite; }
+
+        /* ── Responsive main grid ── */
+        .sbs-about-grid {
+          display: grid;
+          grid-template-columns: 1fr 400px 1fr;
+          padding: 80px 64px 0;
+          position: relative;
+          z-index: 2;
+          align-items: center;
+        }
+        .sbs-about-grid-left {
+          padding-right: 52px;
+        }
+        .sbs-about-grid-right {
+          padding-left: 52px;
+        }
+        
+        .sbs-stats-strip {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          margin-top: 56px;
+          border-top: 1px solid rgba(201,168,76,.18);
+          position: relative;
+          z-index: 2;
+        }
+        
+        .sbs-brand-strip {
+          background: #C9A84C;
+          padding: 15px 64px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          position: relative;
+          z-index: 2;
+        }
+        
+        .sbs-brand-services {
+          display: flex;
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 1024px) {
+          .sbs-about-grid {
+            grid-template-columns: 1fr;
+            padding: 48px 32px 0;
+            gap: 40px;
+          }
+          .sbs-about-grid-left {
+            padding-right: 0 !important;
+          }
+          .sbs-about-grid-center {
+            max-width: 400px;
+            margin: 0 auto;
+            width: 100%;
+          }
+          .sbs-about-grid-right {
+            padding-left: 0 !important;
+          }
+          .sbs-stats-strip {
+            grid-template-columns: repeat(2, 1fr);
+            margin-top: 40px;
+          }
+          .sbs-bs {
+            border-right: none !important;
+            border-bottom: 1px solid rgba(201,168,76,.1);
+            padding: 24px 20px !important;
+          }
+          .sbs-bs:nth-child(even) {
+            border-left: 1px solid rgba(201,168,76,.1);
+          }
+          .sbs-brand-strip {
+            padding: 20px 32px;
+            flex-direction: column;
+            gap: 16px;
+            text-align: center;
+          }
+          .sbs-brand-services {
+            flex-direction: column;
+            gap: 8px;
+          }
+          .sbs-brand-services span {
+            border-right: none !important;
+            padding: 0 !important;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .sbs-about-grid {
+            padding: 32px 16px 0;
+            gap: 32px;
+          }
+          .sbs-stats-strip {
+            grid-template-columns: 1fr;
+          }
+          .sbs-bs:nth-child(even) {
+            border-left: none !important;
+          }
+          .sbs-brand-strip {
+            padding: 20px 16px;
+          }
+        }
       `}</style>
 
       {/* ── Cursor dot ── */}
@@ -273,14 +374,10 @@ export default function AboutSnippet() {
         ))}
 
         {/* ── MAIN GRID ── */}
-        <div style={{
-          display:"grid", gridTemplateColumns:"1fr 400px 1fr",
-          padding:"48px 64px 0", position:"relative", zIndex:2,
-          alignItems:"center",
-        }}>
+        <div className="sbs-about-grid">
 
           {/* ── LEFT ── */}
-          <div style={{ paddingRight:52 }}>
+          <div className="sbs-about-grid-left">
             <span style={{
               fontSize:20, letterSpacing:".22em", textTransform:"uppercase", color:"#C9A84C",
               display:"block", marginBottom:18,
@@ -355,7 +452,7 @@ export default function AboutSnippet() {
           </div>
 
           {/* ── CENTER: Founder image ── */}
-          <div style={{ position:"relative", display:"flex", alignItems:"center", justifyContent:"center", padding:"20px 0" }}>
+          <div className="sbs-about-grid-center" style={{ position:"relative", display:"flex", alignItems:"center", justifyContent:"center", padding:"20px 0" }}>
             {/* Outer wrapper — controls fade + badge positioning relative to image */}
             <div style={{
               position:"relative", width:"100%",
@@ -408,7 +505,7 @@ export default function AboutSnippet() {
                 </div>
               </div>
 
-              {/* Gold 15+ badge — sticks to top-right corner of image */}
+              {/* Gold 6+ badge — sticks to top-right corner of image */}
               <div
                 className={active ? "sbs-badge-show" : "sbs-badge-hidden"}
                 style={{
@@ -417,7 +514,7 @@ export default function AboutSnippet() {
                   transition:"opacity .5s .95s, transform .5s cubic-bezier(.34,1.56,.64,1) .95s",
                 }}
               >
-                <span style={{ fontFamily:"'Playfair Display',serif",fontSize:24,fontWeight:700,color:"#0A0906",display:"block",lineHeight:1 }}>15+</span>
+                <span style={{ fontFamily:"'Playfair Display',serif",fontSize:24,fontWeight:700,color:"#0A0906",display:"block",lineHeight:1 }}>6+</span>
                 <span style={{ fontSize:8,letterSpacing:".14em",textTransform:"uppercase",color:"rgba(10,9,6,.6)",display:"block",marginTop:4 }}>Years</span>
               </div>
 
@@ -430,14 +527,13 @@ export default function AboutSnippet() {
                 transition:"opacity .5s 1.1s, transform .5s cubic-bezier(.16,1,.3,1) 1.1s",
               }}>
                 <div className="sbs-award-dot" style={{ width:6,height:6,borderRadius:"50%",background:"#C9A84C",flexShrink:0 }}/>
-                <span style={{ fontSize:10,letterSpacing:".1em",textTransform:"uppercase",color:"rgba(245,240,232,.7)" }}>SEBI Registered Advisor</span>
+                <span style={{ fontSize:10,letterSpacing:".1em",textTransform:"uppercase",color:"rgba(245,240,232,.7)" }}>Career & HR Advisory</span>
               </div>
             </div>
           </div>
 
           {/* ── RIGHT: Quote — vertically centered with image ── */}
-          <div style={{
-            paddingLeft:52,
+          <div className="sbs-about-grid-right" style={{
             display:"flex", flexDirection:"column", justifyContent:"center",
             alignSelf:"stretch",
           }}>
@@ -478,16 +574,12 @@ export default function AboutSnippet() {
         </div>{/* end main-grid */}
 
         {/* ── BOTTOM 4-STAT STRIP ── */}
-        <div style={{
-          display:"grid", gridTemplateColumns:"repeat(4,1fr)",
-          marginTop:56, borderTop:"1px solid rgba(201,168,76,.18)",
-          position:"relative", zIndex:2,
-        }}>
+        <div className="sbs-stats-strip">
           {[
             { num:`${counters.years}`,    suf:"+",   lbl:"Years of Trust", sub:"Since 2019"         },
-            { num:`${counters.clients>=150?(counters.clients/150).toFixed(0)+"K":counters.clients}`, suf:"+", lbl:"Happy Clients", sub:"Across Gujarat" },
-            { num:`₹${counters.assets}`,  suf:"Cr+", lbl:"Assets Managed", sub:"Growing every year" },
-            { num:`${counters.retention}`,suf:"%",   lbl:"Retention Rate",  sub:"Clients for life"  },
+            { num:`${counters.clients>=150?(counters.clients/1000).toFixed(1)+"K":counters.clients}`, suf:"+", lbl:"Students Trained", sub:"Across Gujarat" },
+            { num:`${counters.assets}`,  suf:"+",   lbl:"Hiring Partners", sub:"Corporate Network" },
+            { num:`${counters.retention}`,suf:"%",   lbl:"Placement Success",  sub:"Job Readiness"  },
           ].map((s,i) => (
             <div
               key={i} className="sbs-bs"
@@ -510,11 +602,7 @@ export default function AboutSnippet() {
         </div>
 
         {/* ── BRAND STRIP ── */}
-        <div style={{
-          background:"#C9A84C", padding:"15px 64px",
-          display:"flex", alignItems:"center", justifyContent:"space-between",
-          position:"relative", zIndex:2,
-        }}>
+        <div className="sbs-brand-strip">
           <div style={{
             position:"absolute", top:0, left:0, right:0, height:1,
             background:"linear-gradient(90deg,transparent,#C9A84C 30%,#C9A84C 70%,transparent)",
@@ -523,7 +611,7 @@ export default function AboutSnippet() {
           <span style={{ fontSize:10,letterSpacing:".14em",textTransform:"uppercase",color:"#1A1A1A" }}>
             SBS Prospects · Ahmedabad, Gujarat
           </span>
-          <div style={{ display:"flex" }}>
+          <div className="sbs-brand-services">
             {["Industry Training","HR Consultancy","Recruitment","Internships"].map((s,i,arr) => (
               <span key={i} style={{
                 fontSize:10, letterSpacing:".1em", textTransform:"uppercase",
