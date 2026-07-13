@@ -66,7 +66,7 @@ const NavbarSection: React.FC = () => {
         {/* MOBILE MENU BUTTON (FIXED SPACING) */}
         <button
           onClick={() => setMenuOpen(!menuOpen)}
-          className="lg:hidden flex flex-col gap-1.25 p-2 -mr-2"
+          className="lg:hidden flex flex-col gap-1.25 p-2 mr-2"
         >
         <span className="w-6 h-0.5 bg-black"></span>
         <span className="w-6 h-0.5 bg-black"></span>
