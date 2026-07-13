@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 interface Particle {
   x: number; y: number; size: number;
@@ -329,30 +330,27 @@ export default function AboutSnippet() {
               opacity:active?1:0, transform:active?"translateY(0)":"translateY(14px)",
               transition:"opacity .5s .85s, transform .5s .85s",
             }}>
-              {[
-                { label:"Read Our Full Story", primary:true  },
-                { label:"Meet The Team", primary:false },
-              ].map((b,i) => (
-                <button
-                  key={i} className="sbs-btn"
-                  onMouseEnter={onEnter} onMouseLeave={onLeave}
-                  style={{
-                    display:"flex", alignItems:"center", justifyContent:"space-between",
-                    width:"100%", padding:"11px 18px",
-                    alignSelf:"center", borderRadius:4,
-                    border: b.primary?"none":"1px solid rgba(26,26,26,.2)",
-                    background: b.primary?"#1A1A1A":"transparent",
-                    color: b.primary?"#F5F0E8":"#1A1A1A",
-                    fontFamily:"'DM Sans',sans-serif", fontSize:11, letterSpacing:".14em",
-                    textTransform:"uppercase", fontWeight:500,
-                    transition:"color .3s, border-color .3s",
-                  }}
-                >
-                  <div className="sbs-btn-bg" style={{ background:b.primary?"#C9A84C":"rgba(201,168,76,.12)" }}/>
-                  <span style={{ position:"relative", zIndex:1 }}>{b.label}</span>
-                  <span className="sbs-btn-arr" style={{ position:"relative", zIndex:1, fontSize:15 }}>→</span>
-                </button>
-              ))}
+              <Link
+                href="/about"
+                className="sbs-btn"
+                onMouseEnter={onEnter} onMouseLeave={onLeave}
+                style={{
+                  display:"flex", alignItems:"center", justifyContent:"space-between",
+                  width:"100%", padding:"11px 18px",
+                  alignSelf:"center", borderRadius:4,
+                  border: "none",
+                  background: "#1A1A1A",
+                  color: "#F5F0E8",
+                  fontFamily:"'DM Sans',sans-serif", fontSize:11, letterSpacing:".14em",
+                  textTransform:"uppercase", fontWeight:500,
+                  transition:"color .3s, border-color .3s",
+                  textDecoration: "none",
+                }}
+              >
+                <div className="sbs-btn-bg" style={{ background: "#C9A84C" }}/>
+                <span style={{ position:"relative", zIndex:1 }}>Read Our Full Story</span>
+                <span className="sbs-btn-arr" style={{ position:"relative", zIndex:1, fontSize:15 }}>→</span>
+              </Link>
             </div>
           </div>
 
