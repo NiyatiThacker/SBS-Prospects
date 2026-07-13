@@ -99,7 +99,7 @@ export default function ContactHero() {
             }`}
             style={{ transitionDelay: "400ms", marginTop: "24px", marginBottom: "0px", textAlign: "center" }}
           >
-            We&apos;re here to guide you toward financial clarity and confidence.
+            We&apos;re here to guide you toward career clarity and confidence.
           </p>
         </div>
       </div>

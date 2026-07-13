@@ -46,7 +46,7 @@ export default function ServicesIntro() {
           
         }}
       >
-        We&apos;re not just another finance firm
+        We&apos;re not just another training institute
       </p>
 
       {/* Main Headline */}
@@ -70,9 +70,9 @@ export default function ServicesIntro() {
             fontWeight: 900,
           }}
         >
-          financial complexity
+          career preparation
         </em>{" "}
-        from a burden into your biggest{" "}
+        from a challenge into your biggest{" "}
         <em
           style={{
             fontStyle: "italic",
@@ -82,7 +82,7 @@ export default function ServicesIntro() {
             
           }}
         >
-          competitive advantage
+          professional launchpad
         </em>
       </h1>
 
@@ -99,9 +99,9 @@ export default function ServicesIntro() {
          
         }}
       >
-        We understand that behind every number, statement, and balance sheet is
-        a real person building something meaningful — and we&apos;re here to
-        protect it.
+        We understand that behind every curriculum, project, and mock interview is
+        a real person striving for professional growth — and we&apos;re here to
+        enable it.
       </p>
     </section>
   );

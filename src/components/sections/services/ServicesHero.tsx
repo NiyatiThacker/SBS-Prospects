@@ -65,7 +65,7 @@ export default function ServicesHero() {
           marginBottom: "52px",
         }}
       >
-        Grow your wealth with expert-led financial guidance
+        Equip yourself with practical skills for career growth
       </p>
 
       {/* Pill CTA Button */}

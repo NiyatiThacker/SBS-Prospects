@@ -7,66 +7,66 @@ const services = [
     number: "1",
     title: "INDUSTRY TRAINING PROGRAMS",
     description:
-      "Start your wealth-building journey with the right funds tailored to your goals and risk appetite.",
+      "Equip yourself with practical, domain-specific skills designed to match the current demands of top corporate recruiters.",
     features: [
-      "Goal-based fund selection",
-      "SIP planning & automation",
-      "Regular portfolio tracking",
+      "Hands-on work modules",
+      "Live project execution",
+      "Industry expert mentors",
     ],
   },
   {
     number: "2",
     title: "MBA SKILL DEVELOPMENT COURSES",
     description:
-      "Minimise your tax burden legally while staying fully compliant with the latest regulations.",
+      "Bridge academic frameworks with real-world corporate execution. Develop core skills in presentation and management.",
     features: [
-      "Income tax planning & filing",
-      "Tax-saving investment guidance",
-      "Capital gains optimisation",
+      "Management framework training",
+      "Presentation and speech drills",
+      "Corporate communication tools",
     ],
   },
   {
     number: "3",
     title: "HR CONSULTANCY",
     description:
-      "Protect what matters most with the right life, health, and general insurance coverage.",
+      "Align organizational staffing needs with high-performance team building and strategic onboarding.",
     features: [
-      "Life & term insurance advisory",
-      "Health & critical illness plans",
-      "Policy review & comparison",
+      "Talent requirement audit",
+      "Screening & skill validation",
+      "Corporate onboarding pathways",
     ],
   },
   {
     number: "4",
     title: "CAREER GUIDANCE",
     description:
-      "A comprehensive roadmap that connects every aspect of your finances toward a secure future.",
+      "Navigate your professional journey with expert advice, pathway mapping, and customized mentorship.",
     features: [
-      "Net worth & cash flow analysis",
-      "Retirement & goal planning",
-      "Emergency fund strategy",
+      "One-on-one career counseling",
+      "Personalized pathway mapping",
+      "Profile & resume building",
     ],
   },
   {
     number: "5",
     title: "RECRUITMENT SUPPORT",
     description:
-      "Invest in India confidently from abroad with fully compliant and hassle-free solutions.",
+      "End-to-end assistance for corporate hiring drives, placement events, and interview simulations.",
     features: [
-      "NRE / NRO account guidance",
-      "Repatriation & FEMA compliance",
-      "India-based portfolio management",
+      "Hiring drive coordination",
+      "Interview simulation drills",
+      "Direct corporate placement network",
     ],
   },
   {
     number: "6",
     title: "INTERNSHIP PROGRAMS",
     description:
-      "Keep your investments aligned to your goals with periodic, data-driven portfolio reviews.",
+      "Gain hands-on corporate experience, execute active workflows, and earn industry-certified credentials.",
     features: [
-      "In-depth portfolio health check",
-      "Asset allocation rebalancing",
-      "Performance benchmarking",
+      "Live corporate project execution",
+      "Active workflow participation",
+      "Professional corporate certificates",
     ],
   },
 ];
@@ -120,8 +120,15 @@ export default function ServicesSection() {
         const isEven = index % 2 === 1;
         const bg = isEven ? "#FFFFFF" : "#f5edde";
 
+        let rowId = "";
+        if (service.title.includes("TRAINING")) {
+          rowId = "training-courses";
+        } else if (service.title.includes("CONSULTANCY")) {
+          rowId = "hr-consultancy";
+        }
+
         return (
-          <div key={service.number} style={{ backgroundColor: bg }}>
+          <div key={service.number} id={rowId} style={{ backgroundColor: bg, scrollMarginTop: "64px" }}>
             <div
               style={{
                 maxWidth: "860px",

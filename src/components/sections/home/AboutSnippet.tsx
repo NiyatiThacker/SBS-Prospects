@@ -140,14 +140,14 @@ export default function AboutSnippet() {
   const onLeave = () => setCurBig(false);
 
   const words = [
-    { text: "Financial", em: false },
-    { text: "Guidance",  em: false },
-    { text: "Built",     em: false },
-    { text: "On",        em: false },
-    { text: "Trust,",    em: true  },
-    { text: "Stability", em: true  },
-    { text: "&",         em: false },
-    { text: "Legacy",    em: true  },
+    { text: "Career",     em: false },
+    { text: "Confidence", em: false },
+    { text: "Built",      em: false },
+    { text: "On",         em: false },
+    { text: "Skills,",    em: true  },
+    { text: "Mentorship", em: true  },
+    { text: "&",          em: false },
+    { text: "Growth",     em: true  },
   ];
 
   return (
@@ -306,21 +306,21 @@ export default function AboutSnippet() {
               opacity:active?1:0, transform:active?"translateX(0)":"translateX(-14px)",
               transition:"opacity .6s .55s, transform .6s .55s",
             }}>
-              Established in 2019, SBS Financial Services has emerged as a trusted financial services firm in Ahmedabad, Gujarat, committed to helping individuals and families make smarter financial decisions with confidence. With a client-centric approach and future-focused strategies, we strive to simplify financial planning and create solutions that support long-term growth, stability, and wealth creation.
+              Established in 2019, SBS Prospects has emerged as a trusted training and HR consultancy firm in Ahmedabad, Gujarat, committed to helping students and professionals navigate their career development with confidence. With an industry-first approach and hands-on exposure, we strive to simplify skill acquisition and create opportunities that support long-term job readiness.
             </p>
             <p style={{
               fontSize:14.5, color:"#5A5450", lineHeight:1.85, marginBottom:16,
               opacity:active?1:0, transform:active?"translateX(0)":"translateX(-14px)",
               transition:"opacity .6s .68s, transform .6s .68s",
             }}>
-              Our mission is to deliver transparent, personalized, and goal-oriented financial guidance that empowers clients at every stage of their financial journey. From investment planning and wealth management to insurance and tax-saving solutions.
+              Our mission is to deliver transparent, high-quality, and goal-oriented training programs that empower trainees at every stage of their professional journey. From MBA skill development and internship support to direct placement solutions and recruitment drives.
             </p>
             <p style={{
               fontSize:14.5, color:"#5A5450", lineHeight:1.85, 
               opacity:active?1:0, transform:active?"translateX(0)":"translateX(-14px)",
               transition:"opacity .6s .68s, transform .6s .68s",
             }}>
-               SBS Financial Services is dedicated to building lasting relationships through trust, expertise, and consistent financial growth.
+               SBS Prospects is dedicated to building lasting corporate relationships through trust, training excellence, and consistent talent placement.
             </p>
 
             {/* Buttons */}
@@ -459,7 +459,7 @@ export default function AboutSnippet() {
                 fontFamily:"'Cormorant Garamond',serif", fontStyle:"italic",
                 fontSize:22, color:"#1A1A1A", lineHeight:1.68, marginBottom:6,
               }}>
-                Financial confidence is built through disciplined planning, informed decisions, and trusted relationships.
+                Professional confidence is built through practical skill acquisition, hands-on experience, and dedicated mentorship.
               </p>
 
               {/* Closing quote — right aligned, tight to text */}
@@ -523,10 +523,10 @@ export default function AboutSnippet() {
             opacity:.3,
           }}/>
           <span style={{ fontSize:10,letterSpacing:".14em",textTransform:"uppercase",color:"#1A1A1A" }}>
-            SBS Financial Services · Ahmedabad, Gujarat
+            SBS Prospects · Ahmedabad, Gujarat
           </span>
           <div style={{ display:"flex" }}>
-            {["Mutual Funds","Insurance","Wealth Planning","Tax Advisory"].map((s,i,arr) => (
+            {["Industry Training","HR Consultancy","Recruitment","Internships"].map((s,i,arr) => (
               <span key={i} style={{
                 fontSize:10, letterSpacing:".1em", textTransform:"uppercase",
                 color:"#1A1A1A", padding:"0 16px",
@@ -535,7 +535,7 @@ export default function AboutSnippet() {
             ))}
           </div>
           <span style={{ fontSize:10,letterSpacing:".14em",textTransform:"uppercase",color:"#1A1A1A" }}>
-            SEBI Registered
+            Career & HR Advisory
           </span>
         </div>
 

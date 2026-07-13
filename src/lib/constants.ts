@@ -1,6 +1,6 @@
 export const SITE_CONTENT = {
   company: {
-    name: "SBS Financial Services",
+    name: "SBS Prospects",
 
     founder: "Mr. Urval Shah",
 
@@ -8,15 +8,15 @@ export const SITE_CONTENT = {
 
     phone: "9081353523",
 
-    email: "Sbsfin27@gmail.com",
+    email: "prospectssbs@gmail.com",
 
-    address: "D2 Harish Appartnment, Part 2 Near Dhanvantari Garden Shantivan, Paldi, Ahmedabad, Gujarat 380007",
+    address: "1003, Span Trade Center, Pritam Nagar, Paldi, Ahmedabad, Gujarat 380006",
 
     city: "Ahmedabad, Gujarat",
 
     whatsapp: "9081353523",
 
-    businessHours: "Monday to Saturday: 10:00 AM - 7:00 PM",
+    businessHours: "Monday to Saturday: 09:00 AM - 06:00 PM",
   },
 
   navbar: {
@@ -37,13 +37,13 @@ export const SITE_CONTENT = {
       },
 
       {
-        label: "Calculators",
-        href: "/calculators",
+        label: "Training & Courses",
+        href: "/services#training-courses",
       },
 
       {
-        label: "Blog",
-        href: "/blog",
+        label: "HR Consultancy",
+        href: "/services#hr-consultancy",
       },
 
       {
@@ -54,13 +54,13 @@ export const SITE_CONTENT = {
   },
 
   hero: {
-    label: "Welcome to SBS Financial Services (Trusted Financial Advisory)",
+    label: "Welcome to SBS Prospects (Trusted Career & HR Advisory)",
 
-    heading: "Structured Financial Planning For Long-Term Wealth Preservation",
+    heading: "Practical Skill Training & Career Exposure For Job Readiness",
 
-    subtext: "SBS Financial Services provides personalized wealth management, mutual fund advisory, retirement planning, and financial solutions tailored for individuals, families, and businesses.",
+    subtext: "SBS Prospects provides industry training programs, HR consultancy services, and career-focused courses designed to equip students with practical skills, hands-on exposure, and job readiness.",
 
-    primaryCta: "Explore Services",
+    primaryCta: "Explore Programs",
 
     secondaryCta: "Contact Us",
   },
@@ -68,144 +68,136 @@ export const SITE_CONTENT = {
   trustBar: {
     stats: [
       {
-        label: "[ADD STAT LABEL]",
-        value: "[ADD VALUE]",
+        label: "Students Trained",
+        value: "1,500+",
       },
 
       {
-        label: "[ADD STAT LABEL]",
-        value: "[ADD VALUE]",
+        label: "Corporate Partners",
+        value: "50+",
       },
 
       {
-        label: "[ADD STAT LABEL]",
-        value: "[ADD VALUE]",
+        label: "Placement Success",
+        value: "95%+",
       },
     ],
   },
 
   aboutSnippet: {
-    label: "[ADD SECTION LABEL]",
+    label: "Empowering Careers",
 
-    heading: "[ADD ABOUT HEADING]",
+    heading: "Bridge the Gap Between Academic Study and Professional Success",
 
-    description: "[ADD ABOUT DESCRIPTION]",
+    description: "Established in 2019, SBS Prospects has emerged as a trusted training and HR consultancy firm in Ahmedabad, Gujarat, committed to helping students and professionals gain practical skills and hands-on exposure.",
   },
 
   services: [
     {
-      title: "Mutual Funds",
-      description: "[ADD CONTENT HERE]",
+      title: "Industry Training",
+      description: "Equip yourself with practical, domain-specific skills designed to match the current demands of top corporate recruiters.",
     },
 
     {
-      title: "SIP Planning",
-      description: "[ADD CONTENT HERE]",
+      title: "MBA Skill Development",
+      description: "Acquire essential business administration tools, leadership strategies, and professional communication skills.",
     },
 
     {
-      title: "Insurance",
-      description: "[ADD CONTENT HERE]",
+      title: "HR Consultancy",
+      description: "Expert HR advisory solutions to align corporate talent strategies with business development goals.",
     },
 
     {
-      title: "Tax Planning",
-      description: "[ADD CONTENT HERE]",
+      title: "Career Guidance",
+      description: "One-on-one mentorship and pathway mapping to align your skills with the right industry opportunities.",
     },
 
     {
-      title: "Fixed Deposits",
-      description: "[ADD CONTENT HERE]",
+      title: "Recruitment Support",
+      description: "End-to-end recruitment drives, placement coordination, and mock interview preparations for maximum readiness.",
     },
 
     {
-      title: "Retirement Planning",
-      description: "[ADD CONTENT HERE]",
-    },
-
-    {
-      title: "Wealth Management",
-      description: "[ADD CONTENT HERE]",
+      title: "Internship Programs",
+      description: "Gain hands-on experience, work on active corporate projects, and apply classroom concepts to real-world scenarios.",
     },
   ],
 
   whyChooseUs: {
-    label: "[ADD SECTION LABEL]",
+    label: "Why Choose SBS Prospects",
 
-    heading: "[ADD SECTION HEADING]",
+    heading: "Your Gateway to Hands-On Industry Experience",
 
     points: [
-      "[ADD POINT]",
-
-      "[ADD POINT]",
-
-      "[ADD POINT]",
-
-      "[ADD POINT]",
+      "Practical curriculum centered around live corporate projects",
+      "Mentorship from experienced industry trainers and HR experts",
+      "Robust network of 50+ corporate hiring and placement partners",
+      "Resume enhancement, mock interviews, and job readiness workshops",
     ],
   },
 
   testimonials: [
     {
-      name: "[CLIENT NAME]",
+      name: "Neha Sharma",
 
-      designation: "[CLIENT DESIGNATION]",
+      designation: "MBA Graduate / Trainee",
 
-      quote: "[ADD TESTIMONIAL]",
+      quote: "The industry training program at SBS Prospects equipped me with practical skills that university courses didn't cover. I felt fully ready and confident for my job interviews!",
     },
 
     {
-      name: "[CLIENT NAME]",
+      name: "Rohan Patel",
 
-      designation: "[CLIENT DESIGNATION]",
+      designation: "HR Manager, Apex Solutions",
 
-      quote: "[ADD TESTIMONIAL]",
+      quote: "We partnered with SBS Prospects for recruitment, and the candidates they trained were exceptional. They hit the ground running with hands-on readiness.",
     },
   ],
 
   faq: [
     {
-      question: "[ADD FAQ QUESTION]",
+      question: "What kind of training programs do you offer?",
 
-      answer: "[ADD FAQ ANSWER]",
+      answer: "We offer industry-aligned training programs, MBA skill development courses, and hands-on internship opportunities across fields like marketing, business administration, and human resources.",
     },
 
     {
-      question: "[ADD FAQ QUESTION]",
+      question: "Do you offer placement assistance?",
 
-      answer: "[ADD FAQ ANSWER]",
+      answer: "Yes, we provide extensive recruitment support, including mock interviews, resume writing workshops, and direct placement opportunities through our corporate hiring network.",
     },
 
     {
-      question: "[ADD FAQ QUESTION]",
+      question: "Who can enroll in your courses?",
 
-      answer: "[ADD FAQ ANSWER]",
+      answer: "Our programs are tailored for students, fresh graduates, and working professionals looking to upskill, pivot their careers, or build practical job readiness.",
     },
   ],
 
   ctaBanner: {
-    heading: "[ADD CTA HEADING]",
+    heading: "Ready to Build Your Professional Future?",
 
-    subtext: "[ADD CTA SUBTEXT]",
+    subtext: "Equip yourself with practical skills, hands-on training, and direct industry exposure to launch your career successfully.",
 
-    buttonText: "[ADD BUTTON TEXT]",
+    buttonText: "Explore Programs",
   },
 
   footer: {
-    description: "SBS Financial Services delivers personalized financial advisory and wealth management solutions focused on long-term financial confidence and stability.",
+    description: "SBS Prospects delivers practical career training, internships, and HR consultancy solutions focused on long-term professional growth and job readiness.",
 
     quickLinks: [
       "About",
       "Services",
-      "Calculators",
-      "Blog",
+      "Training & Courses",
+      "HR Consultancy",
       "Contact",
     ],
   },
 
   contact: {
-    heading: "[ADD CONTACT HEADING]",
+    heading: "Contact SBS Prospects",
 
-    subtext: "[ADD CONTACT SUBTEXT]",
+    subtext: "Get in touch with us to explore training programs, career guidance, or corporate recruitment partnerships.",
   },
 };

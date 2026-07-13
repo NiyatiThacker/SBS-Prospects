@@ -54,7 +54,7 @@ export default function AboutCTA() {
   /* ── Count-up ── */
   useEffect(() => {
     if (!active) return;
-    const targets = { years: 15, clients: 2000, assets: 500, retention: 98 };
+    const targets = { years: 6, clients: 1500, assets: 50, retention: 95 };
     const duration = 1800;
     const start = performance.now();
     let rafId: number;
@@ -462,9 +462,9 @@ export default function AboutCTA() {
             <div className="sbs-gold-rule"/>
 
             {[
-              { delay:".55s", text:"Established in 2019, SBS Financial Services has emerged as a trusted financial services firm in Ahmedabad, Gujarat, committed to helping individuals and families make smarter financial decisions with confidence. With a client-centric approach and future-focused strategies, we strive to simplify financial planning and create solutions that support long-term growth, stability, and wealth creation." },
-              { delay:".68s", text:"Our mission is to deliver transparent, personalized, and goal-oriented financial guidance that empowers clients at every stage of their financial journey. From investment planning and wealth management to insurance and tax-saving solutions." },
-              { delay:".78s", text:"SBS Financial Services is dedicated to building lasting relationships through trust, expertise, and consistent financial growth." },
+              { delay:".55s", text:"Established in 2019, SBS Prospects has emerged as a trusted training and HR consultancy firm in Ahmedabad, Gujarat, committed to helping students and professionals navigate their career development with confidence. With an industry-first approach and hands-on exposure, we strive to simplify skill acquisition and create opportunities that support long-term job readiness." },
+              { delay:".68s", text:"Our mission is to deliver transparent, high-quality, and goal-oriented training programs that empower trainees at every stage of their professional journey. From MBA skill development and internship support to direct placement solutions and recruitment drives." },
+              { delay:".78s", text:"SBS Prospects is dedicated to building lasting corporate relationships through trust, training excellence, and consistent talent placement." },
             ].map((para, i) => (
               <p key={i} style={{
                 fontSize:"clamp(13px, 1.3vw, 14.5px)", color:"#5A5450", lineHeight:1.85,
@@ -555,7 +555,7 @@ export default function AboutCTA() {
                   transition:"opacity .5s .95s, transform .5s cubic-bezier(.34,1.56,.64,1) .95s",
                 }}
               >
-                <span style={{ fontFamily:"'Playfair Display',serif", fontSize:"clamp(18px,2.5vw,24px)", fontWeight:700, color:"#0A0906", display:"block", lineHeight:1 }}>15+</span>
+                <span style={{ fontFamily:"'Playfair Display',serif", fontSize:"clamp(18px,2.5vw,24px)", fontWeight:700, color:"#0A0906", display:"block", lineHeight:1 }}>6+</span>
                 <span style={{ fontSize:8, letterSpacing:".14em", textTransform:"uppercase", color:"rgba(10,9,6,.6)", display:"block", marginTop:4 }}>Years</span>
               </div>
 
@@ -568,7 +568,7 @@ export default function AboutCTA() {
                 transition:"opacity .5s 1.1s, transform .5s cubic-bezier(.16,1,.3,1) 1.1s",
               }}>
                 <div className="sbs-award-dot" style={{ width:6, height:6, borderRadius:"50%", background:"#C9A84C", flexShrink:0 }}/>
-                <span style={{ fontSize:"clamp(8px,1vw,10px)", letterSpacing:".1em", textTransform:"uppercase", color:"rgba(245,240,232,.7)" }}>SEBI Registered Advisor</span>
+                <span style={{ fontSize:"clamp(8px,1vw,10px)", letterSpacing:".1em", textTransform:"uppercase", color:"rgba(245,240,232,.7)" }}>Career & HR Advisory</span>
               </div>
             </div>
           </div>
@@ -592,7 +592,7 @@ export default function AboutCTA() {
                 fontSize:"clamp(16px, 2vw, 22px)",
                 color:"#1A1A1A", lineHeight:1.68, marginBottom:6,
               }}>
-                Financial confidence is built through disciplined planning, informed decisions, and trusted relationships.
+                Professional confidence is built through practical skill acquisition, hands-on experience, and dedicated mentorship.
               </p>
 
               <div style={{
@@ -616,9 +616,9 @@ export default function AboutCTA() {
         <div className="sbs-stats-strip">
           {[
             { num:`${counters.years}`,    suf:"+",   lbl:"Years of Trust",  sub:"Since 2019"          },
-            { num:`${counters.clients >= 150 ? (counters.clients / 1000).toFixed(1) + "K" : counters.clients}`, suf:"+", lbl:"Happy Clients", sub:"Across Gujarat" },
-            { num:`₹${counters.assets}`,  suf:"Cr+", lbl:"Assets Managed", sub:"Growing every year"   },
-            { num:`${counters.retention}`,suf:"%",   lbl:"Retention Rate",  sub:"Clients for life"     },
+            { num:`${counters.clients >= 150 ? (counters.clients / 1000).toFixed(1) + "K" : counters.clients}`, suf:"+", lbl:"Students Trained", sub:"Across Gujarat" },
+            { num:`${counters.assets}`,  suf:"+",   lbl:"Hiring Partners", sub:"Corporate Network"   },
+            { num:`${counters.retention}`,suf:"%",   lbl:"Placement Success", sub:"Job Readiness"     },
           ].map((s,i) => (
             <div
               key={i} className="sbs-bs sbs-stat-item"
@@ -646,10 +646,10 @@ export default function AboutCTA() {
             opacity:.3,
           }}/>
           <span style={{ fontSize:"clamp(8px, 1vw, 10px)", letterSpacing:".14em", textTransform:"uppercase", color:"#1A1A1A" }}>
-            SBS Financial Services · Ahmedabad, Gujarat
+            SBS Prospects · Ahmedabad, Gujarat
           </span>
           <div className="sbs-brand-services">
-            {["Mutual Funds","Insurance","Wealth Planning","Tax Advisory"].map((s,i,arr) => (
+            {["Industry Training","HR Consultancy","Recruitment","Internships"].map((s,i,arr) => (
               <span key={i} style={{
                 fontSize:"clamp(8px, 1vw, 10px)", letterSpacing:".1em", textTransform:"uppercase",
                 color:"#1A1A1A", padding:"0 16px",
@@ -658,7 +658,7 @@ export default function AboutCTA() {
             ))}
           </div>
           <span style={{ fontSize:"clamp(8px, 1vw, 10px)", letterSpacing:".14em", textTransform:"uppercase", color:"#1A1A1A" }}>
-            SEBI Registered
+            Career & HR Advisory
           </span>
         </div>
 

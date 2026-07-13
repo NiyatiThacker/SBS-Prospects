@@ -9,11 +9,11 @@ export default function WhatsAppFloat() {
   const message = `
 Hello,
 
-SBS Financial Services,
+SBS Prospects,
 
-I would like to learn more about your financial advisory and wealth planning services.
+I would like to learn more about your industry training programs, HR consultancy, and career courses.
 
-Please share further details regarding consultation and investment planning.
+Please share further details regarding the batches, duration, and enrollment.
 
 Thank you.
   `;

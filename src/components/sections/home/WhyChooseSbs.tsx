@@ -33,9 +33,9 @@ const CARDS: CardData[] = [
     title: "Industry Based Training",
     image: "/images/WhyChooseSbs/card1.jpg",
     bullets: [
-      { label: "Fiduciary First", description: "Your interests always come before ours — legally and ethically." },
-      { label: "Full Transparency", description: "No hidden fees, no surprises. Clear reporting at every step." },
-      { label: "20+ Years", description: "Two decades of navigating markets for our clients' benefit." },
+      { label: "Hands-on Focus", description: "Work on real projects, execute practical workflows, and build an impressive portfolio." },
+      { label: "Expert Mentorship", description: "Learn directly from professionals who are currently working in top-tier companies." },
+      { label: "Curriculum Excellence", description: "Regularly updated course outlines to match current business administration standards." },
     ],
   },
   {
@@ -43,9 +43,9 @@ const CARDS: CardData[] = [
     title: "Career Focused Programs",
     image: "/images/WhyChooseSbs/card2.jpg",
     bullets: [
-      { label: "Data-Driven Frameworks", description: "Every strategy backed by rigorous quantitative analysis." },
-      { label: "Regular Rebalancing", description: "Portfolios reviewed and realigned to your evolving goals." },
-      { label: "₹500Cr+ Managed", description: "Proven scale with institutional-grade discipline." },
+      { label: "Job Readiness", description: "Build skills tailored directly to what hiring managers check during selections." },
+      { label: "Resume Optimization", description: "Receive help detailing your project accomplishments on your profile and resume." },
+      { label: "Interview Simulation", description: "Extensive mock drills with corporate mentors to overcome interview anxiety." },
     ],
   },
   {
@@ -53,9 +53,9 @@ const CARDS: CardData[] = [
     title: "Expert Trainers",
     image: "/images/WhyChooseSbs/card3.jpg",
     bullets: [
-      { label: "One Dedicated Advisor", description: "A single trusted expert who knows your complete financial picture." },
-      { label: "Custom Strategy", description: "Tailored plans built around your life, not a template." },
-      { label: "24hr Response", description: "Priority access whenever markets move or questions arise." },
+      { label: "One-on-One Guidance", description: "A dedicated mentor to guide your individual upskilling and career direction." },
+      { label: "Corporate Background", description: "Trainers who bring years of execution experience from the corporate world." },
+      { label: "Active Doubt Support", description: "Priority resolution of queries, helping you debug problems and master concepts." },
     ],
   },
   {
@@ -63,9 +63,9 @@ const CARDS: CardData[] = [
     title: "HR Consultancy Support",
     image: "/images/WhyChooseSbs/card4.jpg",
     bullets: [
-      { label: "Generational Thinking", description: "Building wealth that outlasts you and benefits those who follow." },
-      { label: "Compounding Focus", description: "Patient, disciplined strategies that let time do the heavy lifting." },
-      { label: "10yr+ Avg Tenure", description: "Clients who stay because results speak for themselves." },
+      { label: "Recruiter Network", description: "Direct access to a vetted network of hiring managers across the region." },
+      { label: "Placement Drives", description: "Regular placement sessions and direct screening opportunities for trainees." },
+      { label: "Placement Success", description: "95%+ of trainees secure placements or internships within their domain." },
     ],
   },
 ];

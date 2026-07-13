@@ -28,7 +28,7 @@ export default function AboutHero() {
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           className="font-inter text-[0.6rem] tracking-[0.38em] uppercase text-[#C4A052] font-normal mb-10"
         >
-          Boutique Wealth Advisory
+          Boutique Career & HR Advisory
         </motion.p>
 
         {/* Headline */}
@@ -39,15 +39,15 @@ export default function AboutHero() {
           className="font-playfair font-black text-[#F5F0E8] leading-[1.06] mb-8 max-w-3xl"
           style={{ fontSize: "clamp(2.8rem, 6.5vw, 5rem)" }}
         >
-          Preserving legacies
+          Building careers
           <br />
           through
           <br />
           <em className="italic text-[#C4A052] not-italic" style={{ fontStyle: "italic" }}>
-            uncompromised
+            hands-on
           </em>
           <br />
-          counsel.
+          training.
         </motion.h1>
 
         {/* Body */}
@@ -57,9 +57,9 @@ export default function AboutHero() {
           transition={{ duration: 0.7, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
           className="font-inter text-[0.95rem] text-[#9A9085] leading-[1.8] max-w-md"
         >
-          We deliver conflict-free, institutional-grade wealth management for
-          families and institutions who demand transparency and absolute
-          performance.
+          We deliver industry-aligned training, internship programs, and HR
+          consulting services for students and corporates demanding practical
+          readiness and excellence.
         </motion.p>
 
       </div>

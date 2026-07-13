@@ -204,7 +204,7 @@ const HeroSection: React.FC = () => {
             onMouseEnter={() => setPrimaryHover(true)}
             onMouseLeave={() => setPrimaryHover(false)}
           >
-            Explore Traning Programs 
+            Explore Training Programs 
           </a>
           <a
             href="#"

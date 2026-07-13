@@ -378,7 +378,7 @@ useEffect(() => {
 
           <div style={{ position: "relative", zIndex: 2 }}>
             {/* Label */}
-            <span className="sbs-cta-label">Private Financial Advisory</span>
+            <span className="sbs-cta-label">Professional Career Counseling</span>
 
             {/* Ornament */}
             <div className="sbs-ornament">
@@ -392,23 +392,23 @@ useEffect(() => {
 
             {/* Heading */}
             <h2 className="sbs-cta-heading">
-              Build Long-Term Financial <em>Confidence</em>
+              Build Your Professional Future
               <br />
-              With Structured Wealth Planning
+              With Hands-On Industry Experience
             </h2>
 
             {/* Subtext */}
             <p className="sbs-cta-sub">
-              SBS Financial Services provides disciplined planning and
-              personalized advisory solutions designed around your long-term
-              goals.
+              SBS Prospects provides practical training programs, internship
+              opportunities, and HR consulting services designed to foster long-term
+              professional growth and job readiness.
             </p>
 
             {/* Buttons */}
             <div className="sbs-cta-btns">
               <button className="sbs-btn-primary">
                 <div className="shine" />
-                Explore Financial Solutions
+                Explore Training Programs
                 <svg
                   className="arrow"
                   width="11"
@@ -422,7 +422,7 @@ useEffect(() => {
                 </svg>
               </button>
               <button className="sbs-btn-secondary">
-                <span>Book a Private Consultation</span>
+                <span>Book a Counseling Session</span>
                 <svg
                   width="11"
                   height="11"

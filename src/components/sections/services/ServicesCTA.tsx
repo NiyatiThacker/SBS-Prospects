@@ -70,8 +70,8 @@ export default function ServicesCTA() {
             margin: "0 auto 52px auto",
           }}
         >
-          Book a free discovery call and let&apos;s talk about how we can turn your
-          financial position into your most powerful asset.
+          Book a free career consultation call and let&apos;s talk about how we can turn your
+          skills and training into your most powerful professional asset.
         </p>
 
         {/* Buttons */}

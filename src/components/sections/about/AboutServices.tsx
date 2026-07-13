@@ -3,9 +3,9 @@
 import { useEffect, useRef, useState } from "react";
 
 const stats = [
-  { num: "15+", label: "Years of Practice" },
-  { num: "98%", label: "Client Retention" },
-  { num: "₹0", label: "Hidden Commissions" },
+  { num: "1,500+", label: "Students Trained" },
+  { num: "95%+", label: "Placement Success" },
+  { num: "50+", label: "Hiring Partners" },
 ];
 
 const marqueeItems = [
@@ -306,8 +306,8 @@ export default function AboutSection() {
             animationDelay: "0.45s",
           }}
         >
-          A boutique wealth advisory firm built on a single belief — that every financial decision
-          must serve the long-term prosperity of those we advise.
+          A boutique training and career development firm built on a single belief — that every educational program
+          must serve the long-term professional growth of those we mentor.
         </p>
       </div>
 
@@ -316,8 +316,8 @@ export default function AboutSection() {
         {/* Left */}
         <div className={visible ? "sbs-fade-up" : "opacity-0"} style={{ animationDelay: "0.65s" }}>
           <p style={{ fontSize: "clamp(13px, 1.4vw, 15px)", fontWeight: 300, lineHeight: 1.95, color: "#1a160a", fontFamily: "'Outfit', sans-serif" }}>
-            Founded in Ahmedabad (Gujarat), we combine the analytical rigour of institutional finance
-            with the personal attention only a boutique firm can offer.
+            Founded in Ahmedabad (Gujarat), we combine the academic rigour of structured management training
+            with the practical hands-on execution needed in today's corporate world.
           </p>
         </div>
 
@@ -340,8 +340,8 @@ export default function AboutSection() {
         {/* Right */}
         <div className={visible ? "sbs-slide-right" : "opacity-0"} style={{ animationDelay: "0.65s" }}>
           <p style={{ fontSize: "clamp(13px, 1.4vw, 15px)", fontWeight: 300, lineHeight: 1.95, color: "#1a160a", fontFamily: "'Outfit', sans-serif" }}>
-            No hidden commissions. No cookie-cutter portfolios. No compromises.
-            Fiercely independent, conflict-free, answerable only to our clients.
+            No generic modules. No cookie-cutter templates. No compromises.
+            Fully practical, project-driven, dedicated only to student readiness.
           </p>
         </div>
       </div>

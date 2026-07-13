@@ -366,7 +366,7 @@ export default function Footer() {
               SBS Prospects
             </span>
             <p style={{ fontSize: "12px", lineHeight: 1.78, color: "#43474e", fontWeight: 300, maxWidth: "260px", marginBottom: "22px" }}>
-              We build scalable software systems designed for performance, reliability, and long-term growth.
+              We equip students with practical skills, industry exposure, and hands-on training opportunities to foster career development and job readiness.
             </p>
 
             {/* Social Icons */}
@@ -395,8 +395,15 @@ export default function Footer() {
               Quick Links
               <span style={{ position: "absolute", bottom: 0, left: 0, width: "22px", height: "1px", background: "#e9c349", display: "block" }} />
             </span>
-            {["Home", "About Us", "Services","Training & Courses", "HR Consultancy", "Contact"].map((item) => (
-              <Link key={item} href={`/${item.toLowerCase()}`} className="sbs-footer-link">{item}</Link>
+            {[
+              { label: "Home", href: "/" },
+              { label: "About Us", href: "/about" },
+              { label: "Services", href: "/services" },
+              { label: "Training & Courses", href: "/services#training-courses" },
+              { label: "HR Consultancy", href: "/services#hr-consultancy" },
+              { label: "Contact", href: "/contact" },
+            ].map((link) => (
+              <Link key={link.label} href={link.href} className="sbs-footer-link">{link.label}</Link>
             ))}
           </div>
 
