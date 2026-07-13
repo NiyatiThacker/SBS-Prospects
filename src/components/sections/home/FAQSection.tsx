@@ -163,7 +163,7 @@ export default function FAQSectionV2() {
           >
             Clarity &amp;{" "}
             <em style={{ fontStyle: "italic", color: "#735c00" }}>Confidence</em>{" "}
-            For Every Financial Decision
+            For Every Career Choice
           </h2>
           <p
             style={{
@@ -175,8 +175,8 @@ export default function FAQSectionV2() {
               margin: "0 auto",
             }}
           >
-            Everything you need to know about our services, approach, and
-            long-term financial planning.
+            Everything you need to know about our training, recruitment, and
+            long-term career growth.
           </p>
         </div>
 

@@ -212,7 +212,7 @@ export default function WhyChooseSBS() {
           fontWeight: 700, lineHeight: 1.18,
           color: "#1a1a1a", margin: 0, letterSpacing: "-0.5px",
         }}>
-          Financial Strategies{" "}
+          Career Programs{" "}
           <em style={{ fontStyle: "italic", color: "#8a6a1f" }}>Rooted In</em>
           <br />Trust, Precision &amp; Stability
         </h2>

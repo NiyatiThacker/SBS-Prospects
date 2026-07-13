@@ -151,14 +151,14 @@ export default function AboutCTA() {
   const onLeave = () => !isMobile && setCurBig(false);
 
   const words = [
-    { text: "Financial", em: false },
+    { text: "Career",    em: false },
     { text: "Guidance",  em: false },
     { text: "Built",     em: false },
     { text: "On",        em: false },
     { text: "Trust,",    em: true  },
-    { text: "Stability", em: true  },
+    { text: "Growth",    em: true  },
     { text: "&",         em: false },
-    { text: "Legacy",    em: true  },
+    { text: "Excellence", em: true  },
   ];
 
   return (
