@@ -406,7 +406,7 @@ useEffect(() => {
 
             {/* Buttons */}
             <div className="sbs-cta-btns">
-              <button className="sbs-btn-primary">
+              <a href="/services" className="sbs-btn-primary" style={{ textDecoration: 'none' }}>
                 <div className="shine" />
                 Explore Training Programs
                 <svg
@@ -420,8 +420,8 @@ useEffect(() => {
                 >
                   <path d="M5 12h14M12 5l7 7-7 7" />
                 </svg>
-              </button>
-              <button className="sbs-btn-secondary">
+              </a>
+              <a href="/contact" className="sbs-btn-secondary" style={{ textDecoration: 'none' }}>
                 <span>Book a Counseling Session</span>
                 <svg
                   width="11"
@@ -433,7 +433,7 @@ useEffect(() => {
                 >
                   <path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                 </svg>
-              </button>
+              </a>
             </div>
 
             {/* Stats */}

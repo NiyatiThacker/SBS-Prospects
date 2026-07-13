@@ -207,7 +207,7 @@ const HeroSection: React.FC = () => {
             Explore Training Programs 
           </a>
           <a
-            href="#"
+            href="/contact"
             style={{
               ...styles.btnSecondary,
               ...(secondaryHover
