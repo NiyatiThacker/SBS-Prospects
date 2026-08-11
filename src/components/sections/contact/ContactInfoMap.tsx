@@ -27,7 +27,7 @@ export default function ContactInfoMap() {
             allowFullScreen
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
-            title="SBS Financials Office Location"
+            title="SBS Prospects Office Location"
             className="w-full h-full"
           />
         </div>

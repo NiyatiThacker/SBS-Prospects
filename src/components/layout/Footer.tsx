@@ -2,9 +2,20 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export default function Footer() {
+  const pathname = usePathname();
   const [phoneCopied, setPhoneCopied] = useState(false);
+
+  const handleLinkClick = (href: string) => {
+    const targetPath = href.split('#')[0];
+    if (pathname === targetPath) {
+      if (!href.includes('#')) {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+    }
+  };
 
   const handlePhoneClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     // Detect mobile or tablet screens
@@ -347,26 +358,29 @@ export default function Footer() {
           <div className="sbs-footer-brand-col">
             {/* Logo — natural size, no whitespace */}
             <div className="sbs-footer-logo-wrap">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/logo/Sbs-2.png"
-                alt="SBS Prospects"
-                width={220}
-                height={72}
-                style={{
-                  width: "220px",
-                  height: "auto",
-                  objectFit: "contain",
-                }}
-                loading="eager"
-              />
+              <Link href="/" onClick={() => handleLinkClick("/")}>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/logo/Sbs-2.png"
+                  alt="SBS Prospects"
+                  width={220}
+                  height={72}
+                  style={{
+                    width: "220px",
+                    height: "auto",
+                    objectFit: "contain",
+                    cursor: "pointer",
+                  }}
+                  loading="eager"
+                />
+              </Link>
             </div>
 
             <span style={{ fontSize: "9px", letterSpacing: "0.28em", textTransform: "uppercase", color: "#735c00", display: "block", marginBottom: "16px", fontWeight: 500 }}>
               SBS Prospects
             </span>
             <p style={{ fontSize: "12px", lineHeight: 1.78, color: "#43474e", fontWeight: 300, maxWidth: "260px", marginBottom: "22px" }}>
-              We build scalable software systems designed for performance, reliability, and long-term growth.
+              We equip students with practical skills, industry exposure, and hands-on training opportunities to foster career development and job readiness.
             </p>
 
             {/* Social Icons */}
@@ -383,7 +397,7 @@ export default function Footer() {
               <a href="https://www.linkedin.com/company/sbs-prospectss" target="_blank" rel="noopener noreferrer" className="sbs-social-btn" title="LinkedIn">
                 <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
               </a>
-              <a href="https://youtube.com/@sbsfinancials?si=dKQ9457BVXpHwCHK" target="_blank" rel="noopener noreferrer" className="sbs-social-btn" title="YouTube">
+              <a href="https://youtube.com/" target="_blank" rel="noopener noreferrer" className="sbs-social-btn" title="YouTube">
                 <svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 001.46 6.42 29 29 0 001 12a29 29 0 00.46 5.58 2.78 2.78 0 001.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.96A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="#fbf3e4"/></svg>
               </a>
             </div>
@@ -395,8 +409,15 @@ export default function Footer() {
               Quick Links
               <span style={{ position: "absolute", bottom: 0, left: 0, width: "22px", height: "1px", background: "#e9c349", display: "block" }} />
             </span>
-            {["Home", "About Us", "Services","Training & Courses", "HR Consultancy", "Contact"].map((item) => (
-              <Link key={item} href={`/${item.toLowerCase()}`} className="sbs-footer-link">{item}</Link>
+            {[
+              { label: "Home", href: "/" },
+              { label: "About Us", href: "/about" },
+              { label: "Services", href: "/services" },
+              { label: "Training & Courses", href: "/services#training-courses" },
+              { label: "HR Consultancy", href: "/services#hr-consultancy" },
+              { label: "Contact", href: "/contact" },
+            ].map((link) => (
+              <Link key={link.label} href={link.href} onClick={() => handleLinkClick(link.href)} className="sbs-footer-link">{link.label}</Link>
             ))}
           </div>
 
@@ -407,7 +428,7 @@ export default function Footer() {
               <span style={{ position: "absolute", bottom: 0, left: 0, width: "22px", height: "1px", background: "#e9c349", display: "block" }} />
             </span>
             {["Career Programs", "Placement Assistance", "Internship Support", "Industry Based Training", "Live Projects", "Expert Trainers", "HR & Consultancy"].map((item) => (
-              <Link key={item} href="/services" className="sbs-footer-link">{item}</Link>
+              <Link key={item} href="/services" onClick={() => handleLinkClick("/services")} className="sbs-footer-link">{item}</Link>
             ))}
           </div>
 

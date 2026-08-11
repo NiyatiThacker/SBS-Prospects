@@ -190,8 +190,8 @@ export default function TrustBar() {
       if (layoutData.length === 0) return;
 
       // --- CONFIGURABLE: Set expansion limit here ---
-      // 1.0 means mobile items expand completely into their designated rows to prevent clumping
-      const expansionFactor = isMobile ? 1.0 : 1.16; 
+      // 1.0 means items unfold exactly into their grid positions
+      const expansionFactor = 1.0; 
 
       const hintOpacity = Math.max(0, 1 - scrollProgress * 5);
       if (scrollHint) {
@@ -1026,8 +1026,8 @@ export default function TrustBar() {
 
           {/* Header */}
           <div className="sbs-header-block">
-            <span className="sbs-header-label">Connected Financial Planning</span>
-            <h2 className="sbs-header-title">The SBS Wealth Ecosystem</h2>
+            <span className="sbs-header-label">Industry Skill Planning</span>
+            <h2 className="sbs-header-title">The SBS Prospects Ecosystem</h2>
             <div className="sbs-header-ornament">
               <div className="sbs-header-line" />
               <div className="sbs-header-diamond" />
@@ -1071,8 +1071,8 @@ export default function TrustBar() {
                   </div>
                 </div>
                 <div className="sbs-card-content">
-                  <span className="sbs-card-category">AMFI Registered</span>
-                  <h3 className="sbs-card-title">Trusted Advisory</h3>
+                  <span className="sbs-card-category">Skill Development</span>
+                  <h3 className="sbs-card-title">Placement Focus</h3>
                 </div>
               </div>
             </div>
@@ -1087,8 +1087,8 @@ export default function TrustBar() {
                   </div>
                 </div>
                 <div className="sbs-card-content">
-                  <span className="sbs-card-category">Client-Centric</span>
-                  <h3 className="sbs-card-title">Long-Term Planning</h3>
+                  <span className="sbs-card-category">Student-Centric</span>
+                  <h3 className="sbs-card-title">Hands-On Practice</h3>
                 </div>
               </div>
             </div>
@@ -1103,8 +1103,8 @@ export default function TrustBar() {
                   </div>
                 </div>
                 <div className="sbs-card-content">
-                  <span className="sbs-card-category">Financial Solutions</span>
-                  <h3 className="sbs-card-title">Structured Guidance</h3>
+                  <span className="sbs-card-category">HR & Recruitment</span>
+                  <h3 className="sbs-card-title">Direct Placements</h3>
                 </div>
               </div>
             </div>
@@ -1120,7 +1120,7 @@ export default function TrustBar() {
                 </div>
                 <div className="sbs-card-content">
                   <span className="sbs-card-category">Personalized</span>
-                  <h3 className="sbs-card-title">Wealth Strategies</h3>
+                  <h3 className="sbs-card-title">Career Pathways</h3>
                 </div>
               </div>
             </div>
@@ -1173,18 +1173,15 @@ export default function TrustBar() {
           <div className="sbs-marquee-block">
             <div className="sbs-marquee-inner" aria-hidden="true">
               {[
-                "Legacy-Focused Wealth Planning",
-                "Disciplined Financial Guidance",
-                "Long-Term Relationship Driven Advisory",
+                "Industry Based Training",
+                "Live Projects",
+                "Expert Trainers",
                 "Structured Investment Thinking",
-                "Preserving Wealth Across Generations",
-                "Clarity Through Every Financial Stage",
-                "Legacy-Focused Wealth Planning",
-                "Disciplined Financial Guidance",
-                "Long-Term Relationship Driven Advisory",
-                "Structured Investment Thinking",
-                "Preserving Wealth Across Generations",
-                "Clarity Through Every Financial Stage",
+                "Career Programs",
+                "Placement Assistance",
+                "Internship Support",
+                "Student Mentorship",
+                "Skill Development",
               ].map((text, i) => (
                 <span key={i} className="sbs-marquee-text">{text}</span>
               ))}

@@ -14,42 +14,42 @@ interface Testimonial {
 const testimonials: Testimonial[] = [
   {
     id: 1,
-    name: "Aarav Mehta",
-    role: "Business Owner",
-    company: "Mehta Ventures",
-    text: "SBS Financial Services helped us structure our investments with complete clarity and long-term confidence. Their disciplined approach is unlike anything we've experienced before.",
-    initials: "AM",
+    name: "Neha Sharma",
+    role: "MBA Trainee",
+    company: "Apex Corp",
+    text: "The practical training and mock interview sessions at SBS Prospects completely transformed my confidence. I went from feeling unprepared to securing my dream role.",
+    initials: "NS",
   },
   {
     id: 2,
-    name: "Riya Kapoor",
-    role: "Entrepreneur",
-    company: "Kapoor Studios",
-    text: "Their transparency and disciplined advisory approach gave me peace of mind during every financial decision. Every conversation felt like speaking to a trusted partner.",
-    initials: "RK",
+    name: "Rohan Patel",
+    role: "Hiring Partner / HR Lead",
+    company: "Zeta Solutions",
+    text: "We've hired multiple candidates from SBS Prospects' training cohorts. Their hands-on experience and day-one readiness are exceptional.",
+    initials: "RP",
   },
   {
     id: 3,
     name: "Dev Malhotra",
-    role: "Investor",
-    company: "DM Capital",
-    text: "The experience feels premium, personal, and genuinely trustworthy. Highly recommended for serious investors who value clarity and long-term strategy above all else.",
+    role: "Marketing Trainee",
+    company: "SBS Alumni",
+    text: "Working on active corporate projects during the course allowed me to build a practical portfolio that immediately stood out to recruiters.",
     initials: "DM",
   },
   {
     id: 4,
     name: "Priya Nair",
-    role: "CFO",
-    company: "Nair Holdings",
-    text: "Exceptional service. SBS transformed our financial outlook with precision and grace. Their team's expertise is matched only by their integrity.",
+    role: "HR Consultant / Partner",
+    company: "Scale HR",
+    text: "Their alignment of skills training with corporate recruitment standards makes SBS Prospects the gold standard for job readiness.",
     initials: "PN",
   },
   {
     id: 5,
     name: "Arjun Singh",
-    role: "Portfolio Manager",
-    company: "Singh Capital",
-    text: "Working with SBS has been a revelation. Their analytical depth and personalized attention make them the gold standard in financial advisory.",
+    role: "Operations Graduate",
+    company: "Corporate Placed",
+    text: "The mock interviews and resume guidance gave me a clear direction. The mentorship was outstanding, pushing me to achieve my potential.",
     initials: "AS",
   },
 ];
@@ -318,7 +318,7 @@ export default function SBSTestimonials() {
             Trusted Relationships Built Through{" "}
             <em style={{ fontStyle: "italic", color: "#735c00" }}>Consistency,</em>
             <br />
-            Transparency &amp; Financial Discipline
+            Practice &amp; Skill Excellence
           </h2>
 
           {/* Subtext */}
@@ -333,8 +333,8 @@ export default function SBSTestimonials() {
               fontWeight: "400",
             }}
           >
-            Every financial journey is personal. Our clients trust us for disciplined
-            strategies, transparent guidance, and long-term wealth clarity.
+            Every career path is unique. Our trainees and corporate partners trust us for
+            practical guidance, hands-on learning, and active job placements.
           </p>
         </div>
 

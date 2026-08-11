@@ -7,37 +7,37 @@ const faqs = [
     id: 1,
     question: "Is your HR service only for trained students?",
     answer:
-      "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.",
+      "While we prioritize candidates who undergo our specialized skill development and MBA training programs, our HR Consultancy services are also open to external candidates. We screen and validate all prospects to match the specific staffing requirements of our hiring corporate partners.",
   },
   {
     id: 2,
     question: "What industries do you support?",
     answer:
-      "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.",
+      "We support placement and corporate training across multiple industries, including Finance, Marketing, IT Services, Operations, Retail Management, Business Analytics, and General Management. Our training modules are customized to align with these major fields.",
   },
   {
     id: 3,
     question: "Do you conduct interview preparation?",
     answer:
-      "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.",
+      "Yes, comprehensive interview preparation is a core component of our training. We conduct one-on-one mock interviews, resume review sessions, group discussions, and confidence-building drills with industry professionals to ensure candidates are fully job-ready.",
   },
   {
     id: 4,
     question: "What is HR Consultancy?",
     answer:
-      "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.",
+      "Our HR Consultancy operates as a bridge between corporate employers and skilled talent. We work closely with companies to audit their talent requirements, screen prospective candidates through rigorous evaluations, and coordinate the entire hiring and onboarding process.",
   },
   {
     id: 5,
     question: "Do you provide job placement support?",
     answer:
-      "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.",
+      "Absolutely. We provide end-to-end placement support including resume sharing with corporate networks, scheduling interviews, coordinating campus drives, and offering direct access to our partner organizations looking to hire trained entry-level talent.",
   },
   {
     id: 6,
     question: "How do you help companies with hiring?",
     answer:
-      "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.",
+      "We handle the end-to-end recruitment lifecycle for companies. We source high-potential candidates, validate their domain skills and soft-skills through our training programs, and present a pre-vetted shortlist of candidates, significantly reducing time-to-hire for employers.",
   },
 ];
 
@@ -163,7 +163,7 @@ export default function FAQSectionV2() {
           >
             Clarity &amp;{" "}
             <em style={{ fontStyle: "italic", color: "#735c00" }}>Confidence</em>{" "}
-            For Every Financial Decision
+            For Every Career Choice
           </h2>
           <p
             style={{
@@ -175,8 +175,8 @@ export default function FAQSectionV2() {
               margin: "0 auto",
             }}
           >
-            Everything you need to know about our services, approach, and
-            long-term financial planning.
+            Everything you need to know about our training, recruitment, and
+            long-term career growth.
           </p>
         </div>
 

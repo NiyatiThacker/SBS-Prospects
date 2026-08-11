@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import Link from "next/link";
 
 export default function ServicesCTA() {
   useEffect(() => {
@@ -70,8 +71,8 @@ export default function ServicesCTA() {
             margin: "0 auto 52px auto",
           }}
         >
-          Book a free discovery call and let&apos;s talk about how we can turn your
-          financial position into your most powerful asset.
+          Book a free career consultation call and let&apos;s talk about how we can turn your
+          skills and training into your most powerful professional asset.
         </p>
 
         {/* Buttons */}
@@ -83,10 +84,11 @@ export default function ServicesCTA() {
             flexWrap: "wrap",
           }}
         >
-          <button
+          <Link
+            href="/contact"
             style={{
-              backgroundColor: "#7A6555",
-              border: "1.5px solid #7A6555",
+              backgroundColor: "#2C2420",
+              border: "none",
               color: "#FFFFFF",
               fontSize: "0.62rem",
               letterSpacing: "0.22em",
@@ -95,17 +97,19 @@ export default function ServicesCTA() {
               cursor: "pointer",
               fontFamily: "'Inter', sans-serif",
               textTransform: "uppercase",
-              display: "flex",
+              display: "inline-flex",
               alignItems: "center",
               gap: "10px",
               minWidth: "220px",
               justifyContent: "center",
+              textDecoration: "none",
             }}
           >
             Book a Free Call <span style={{ fontSize: "1rem" }}>→</span>
-          </button>
+          </Link>
 
-          <button
+          <Link
+            href="/about"
             style={{
               backgroundColor: "transparent",
               border: "1.5px solid #2C2420",
@@ -118,10 +122,14 @@ export default function ServicesCTA() {
               fontFamily: "'Inter', sans-serif",
               textTransform: "uppercase",
               minWidth: "220px",
+              display: "inline-flex",
+              alignItems: "center",
+              justifyContent: "center",
+              textDecoration: "none",
             }}
           >
             Learn About Us
-          </button>
+          </Link>
         </div>
       </div>
     </section>

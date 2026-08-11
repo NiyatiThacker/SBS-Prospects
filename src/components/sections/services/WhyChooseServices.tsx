@@ -7,22 +7,22 @@ const reasons = [
   {
     title: "Results-Driven Strategy",
     description:
-      "Every plan we build is tied to measurable outcomes — returns, savings, and long-term security.",
+      "Every program is designed to deliver measurable career progress, placement success, and validated skill acquisition.",
   },
   {
     title: "Done-For-You Execution",
     description:
-      "We don't just hand you a plan. We manage the complexity so you stay focused on what matters.",
+      "We don't just teach theory. We guide you through active, practical workflows, real case studies, and corporate simulations.",
   },
   {
-    title: "Client-First Approach",
+    title: "Student-First Approach",
     description:
-      "Behind every portfolio is a real person with real goals. We put your interests above everything else.",
+      "Behind every candidate is a unique ambition. We design our training paths around your specific career objectives.",
   },
   {
     title: "Boutique Precision",
     description:
-      "We work with a select number of clients so you always receive our complete focus and expertise.",
+      "We maintain selective batches to guarantee personalized feedback, direct mentorship, and complete focus on each trainee.",
   },
 ];
 

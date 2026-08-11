@@ -60,50 +60,137 @@ const cardWrapStyle: CSSProperties = {
   position: "relative",
   borderRadius: "1.5rem",
   overflow: "hidden",
+  display: "flex",
+  flexDirection: "column",
+  height: "100%",
 };
 
 const glassPanelStyle: CSSProperties = {
-  borderRadius: "1rem",
-  border: "1px solid rgba(255,255,255,0.2)",
-  background: "rgba(255,255,255,0.1)",
-  backdropFilter: "blur(12px)",
-  WebkitBackdropFilter: "blur(12px)",
-  padding: "2.5rem",
+  borderRadius: "1.25rem",
+  border: "1px solid rgba(255,255,255,0.25)",
+  background: "rgba(255,255,255,0.08)",
+  backdropFilter: "blur(16px)",
+  WebkitBackdropFilter: "blur(16px)",
+  padding: "3rem 2rem",
   textAlign: "center",
+  boxShadow: "0 8px 32px 0 rgba(0, 0, 0, 0.25)",
 };
 
 export default function ContactForm() {
   const [form, setForm] = useState<FormState>(initialForm);
   const [status, setStatus] = useState<"idle" | "sending" | "sent">("idle");
+  const [errors, setErrors] = useState<Partial<FormState>>({});
 
   function handleChange(
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) {
     const { name, value } = e.target;
+
+    if (name === "phone") {
+      const numericValue = value.replace(/[^0-9]/g, "");
+      if (numericValue.length <= 10) {
+        setForm((prev) => ({ ...prev, [name]: numericValue }));
+        if (numericValue.length === 10) {
+          setErrors((prev) => ({ ...prev, phone: undefined }));
+        }
+      }
+      return;
+    }
+
+    if (value.trim() !== "") {
+      setErrors((prev) => ({ ...prev, [name]: undefined }));
+    }
+
     setForm((prev) => ({ ...prev, [name]: value }));
   }
 
-  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
-  e.preventDefault();
-  setStatus("sending");
+  function validateForm(): boolean {
+    const tempErrors: Partial<FormState> = {};
+    let isValid = true;
 
-  try {
-    await fetch("YOUR_SCRIPT_URL", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(form),
-    });
+    if (!form.name.trim()) {
+      tempErrors.name = "Name is required.";
+      isValid = false;
+    } else if (form.name.trim().length < 2) {
+      tempErrors.name = "Name must be at least 2 characters.";
+      isValid = false;
+    }
 
-    setStatus("sent");
-    setForm(initialForm);
-  } catch (error) {
-    console.error(error);
-    setStatus("idle");
-    alert("Error sending message");
+    if (!form.email.trim()) {
+      tempErrors.email = "Email is required.";
+      isValid = false;
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email.trim())) {
+      tempErrors.email = "Please enter a valid email address.";
+      isValid = false;
+    }
+
+    if (!form.phone.trim()) {
+      tempErrors.phone = "Phone number is required.";
+      isValid = false;
+    } else if (form.phone.trim().length !== 10) {
+      tempErrors.phone = "Phone number must be exactly 10 digits.";
+      isValid = false;
+    }
+
+    if (!form.message.trim()) {
+      tempErrors.message = "Message is required.";
+      isValid = false;
+    } else if (form.message.trim().length < 10) {
+      tempErrors.message = "Message must be at least 10 characters.";
+      isValid = false;
+    }
+
+    setErrors(tempErrors);
+    return isValid;
   }
-}
+
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    if (!validateForm()) {
+      return;
+    }
+    setStatus("sending");
+
+    const scriptUrl = process.env.NEXT_PUBLIC_CONTACT_SCRIPT_URL;
+    const spreadsheetId = process.env.NEXT_PUBLIC_SPREADSHEET_ID;
+
+    if (!scriptUrl || !spreadsheetId) {
+      console.error("Environment variables are missing.");
+      setStatus("idle");
+      alert("System configuration error. Please check your .env file.");
+      return;
+    }
+
+    try {
+      const response = await fetch(scriptUrl, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: new URLSearchParams({
+          ...form,
+          spreadsheetId: spreadsheetId,
+        }),
+      });
+
+      const data = await response.json();
+      console.log("Server Response:", data);
+
+      if (data.status === "success") {
+        setStatus("sent");
+        setForm(initialForm);
+        setErrors({});
+      } else {
+        console.error("Server Error:", data.error);
+        setStatus("idle");
+        alert("Google Sheets Error: " + data.error);
+      }
+    } catch (error) {
+      console.error("Fetch Error:", error);
+      setStatus("idle");
+      alert("Error sending message. Check browser console (F12).");
+    }
+  }
 
   return (
     <section style={sectionStyle} className="w-full bg-white md:px-16! md:py-24!">
@@ -136,11 +223,11 @@ export default function ContactForm() {
           <div
             style={{
               position: "relative",
-              minHeight: 560,
+              flex: 1,
               display: "flex",
               flexDirection: "column",
               justifyContent: "center",
-              padding: "2.5rem 1.5rem",
+              padding: "1.25rem",
             }}
           >
             <div style={glassPanelStyle}>
@@ -150,7 +237,7 @@ export default function ContactForm() {
               <p style={{ marginTop: "0.75rem", color: "rgba(255,255,255,0.9)", lineHeight: 1.6 }}>
                 1003, Span Trade Center
                 <br />
-                Pritam Nagar,Paldi,
+                Pritam Nagar, Paldi,
                 <br />
                 Ahmedabad, Gujarat 380006
               </p>
@@ -218,7 +305,7 @@ export default function ContactForm() {
                 gap: "1.5rem",
               }}
             >
-              <Field label="Name" required>
+              <Field label="Name" required error={errors.name}>
                 <input
                   type="text"
                   name="name"
@@ -226,30 +313,31 @@ export default function ContactForm() {
                   onChange={handleChange}
                   placeholder="Name"
                   required
-                  style={inputStyle}
+                  style={{ ...inputStyle, borderColor: errors.name ? "#DC2626" : "#D1D5DB" }}
                 />
               </Field>
-              <Field label="Company">
+              <Field label="Company" error={errors.company}>
                 <input
                   type="text"
                   name="company"
                   value={form.company}
                   onChange={handleChange}
                   placeholder="Company"
-                  style={inputStyle}
+                  style={{ ...inputStyle, borderColor: errors.company ? "#DC2626" : "#D1D5DB" }}
                 />
               </Field>
-              <Field label="Phone">
+              <Field label="Phone" required error={errors.phone}>
                 <input
                   type="tel"
                   name="phone"
                   value={form.phone}
                   onChange={handleChange}
                   placeholder="Phone"
-                  style={inputStyle}
+                  required
+                  style={{ ...inputStyle, borderColor: errors.phone ? "#DC2626" : "#D1D5DB" }}
                 />
               </Field>
-              <Field label="Email" required>
+              <Field label="Email" required error={errors.email}>
                 <input
                   type="email"
                   name="email"
@@ -257,26 +345,26 @@ export default function ContactForm() {
                   onChange={handleChange}
                   placeholder="Email"
                   required
-                  style={inputStyle}
+                  style={{ ...inputStyle, borderColor: errors.email ? "#DC2626" : "#D1D5DB" }}
                 />
               </Field>
             </div>
 
             <div style={{ marginTop: "1.5rem" }}>
-              <Field label="Subject">
+              <Field label="Subject" error={errors.subject}>
                 <input
                   type="text"
                   name="subject"
                   value={form.subject}
                   onChange={handleChange}
                   placeholder="Subject"
-                  style={inputStyle}
+                  style={{ ...inputStyle, borderColor: errors.subject ? "#DC2626" : "#D1D5DB" }}
                 />
               </Field>
             </div>
 
             <div style={{ marginTop: "1.5rem" }}>
-              <Field label="Message" required>
+              <Field label="Message" required error={errors.message}>
                 <textarea
                   name="message"
                   value={form.message}
@@ -284,7 +372,11 @@ export default function ContactForm() {
                   placeholder="Message"
                   required
                   rows={6}
-                  style={{ ...inputStyle, resize: "vertical" }}
+                  style={{
+                    ...inputStyle,
+                    resize: "vertical",
+                    borderColor: errors.message ? "#DC2626" : "#D1D5DB",
+                  }}
                 />
               </Field>
             </div>
@@ -332,10 +424,12 @@ function Field({
   label,
   required,
   children,
+  error,
 }: {
   label: string;
   required?: boolean;
   children: React.ReactNode;
+  error?: string;
 }) {
   return (
     <label style={{ display: "block" }}>
@@ -348,6 +442,11 @@ function Field({
         )}
       </span>
       {children}
+      {error && (
+        <span style={{ display: "block", marginTop: "0.35rem", fontSize: "0.75rem", color: "#DC2626", fontWeight: 500 }}>
+          {error}
+        </span>
+      )}
     </label>
   );
 }
