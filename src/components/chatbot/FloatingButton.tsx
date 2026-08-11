@@ -10,7 +10,10 @@ interface FloatingButtonProps {
 
 export default function FloatingButton({ isOpen, toggle }: FloatingButtonProps) {
   return (
-    <div style={{ position: 'relative', width: '60px', height: '60px' }}>
+    <div id="sbs-floating-btn" style={{ position: 'relative', width: '60px', height: '60px' }}>
+      <style>{`
+        #sbs-floating-btn, #sbs-floating-btn * { cursor: pointer !important; }
+      `}</style>
       {/* Pulsing Outer Ring (Only when closed) */}
       {!isOpen && (
         <motion.div

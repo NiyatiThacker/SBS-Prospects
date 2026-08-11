@@ -278,7 +278,7 @@ export default function AboutSection() {
             animationDelay: "0.2s",
           }}
         >
-          We manage wealth with{" "}
+          We manage careers with{" "}
           <em style={{ color: "#7A6A1E", fontStyle: "italic", fontWeight: 400 }}>discipline</em>{" "}
           &amp; conviction.
         </h2>

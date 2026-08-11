@@ -510,12 +510,12 @@ export default function AboutSnippet() {
                 className={active ? "sbs-badge-show" : "sbs-badge-hidden"}
                 style={{
                   position:"absolute", top:0, right:0, zIndex:6,
-                  background:"#C9A84C", padding:"14px 18px", textAlign:"center", minWidth:80,
+                  background:"#C9A84C", padding:"14px 18px", textAlign:"center", minWidth:120,
                   transition:"opacity .5s .95s, transform .5s cubic-bezier(.34,1.56,.64,1) .95s",
                 }}
               >
                 <span style={{ fontFamily:"'Playfair Display',serif",fontSize:24,fontWeight:700,color:"#0A0906",display:"block",lineHeight:1 }}>6+</span>
-                <span style={{ fontSize:8,letterSpacing:".14em",textTransform:"uppercase",color:"rgba(10,9,6,.6)",display:"block",marginTop:4 }}>Years</span>
+                <span style={{ fontSize:8,letterSpacing:".14em",textTransform:"uppercase",color:"rgba(10,9,6,.6)",display:"block",marginTop:4 }}>Years Experience*</span>
               </div>
 
               {/* SEBI tag — bottom left, outside image */}

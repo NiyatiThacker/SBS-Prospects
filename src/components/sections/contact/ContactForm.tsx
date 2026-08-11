@@ -132,11 +132,16 @@ export default function ContactForm() {
       isValid = false;
     }
 
-    if (!form.message.trim()) {
-      tempErrors.message = "Message is required.";
+    if (!form.subject.trim()) {
+      tempErrors.subject = "Subject is required.";
       isValid = false;
-    } else if (form.message.trim().length < 10) {
-      tempErrors.message = "Message must be at least 10 characters.";
+    } else if (form.subject.trim().length < 2) {
+      tempErrors.subject = "Subject must be at least 2 characters.";
+      isValid = false;
+    }
+
+    if (form.message.trim().length > 0 && form.message.trim().length < 10) {
+      tempErrors.message = "Message must be at least 10 characters if provided.";
       isValid = false;
     }
 
@@ -285,12 +290,34 @@ export default function ContactForm() {
 
         {/* Right: form */}
         <div style={{ display: "flex", flexDirection: "column" }}>
-          <h2
-            className={playfair.className}
-            style={{ fontSize: "2.5rem", fontStyle: "italic", color: "#16162B" }}
-          >
-            SEND A MESSAGE
-          </h2>
+          <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: "1rem" }}>
+            <h2
+              className={playfair.className}
+              style={{ fontSize: "2.5rem", fontStyle: "italic", color: "#16162B" }}
+            >
+              SEND A MESSAGE
+            </h2>
+            <a
+              href="https://youtube.com/@sbsprospects?si=zz2EUNcw8B8O4c4K"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                width: "2.5rem",
+                height: "2.5rem",
+                borderRadius: "50%",
+                background: "#E9C46A",
+                color: "#16162B",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                transition: "all 0.3s",
+              }}
+              className="hover:scale-110"
+              title="YouTube"
+            >
+              <YoutubeIcon style={{ width: "1.25rem", height: "1.25rem" }} />
+            </a>
+          </div>
           <p style={{ marginTop: "1rem", maxWidth: "36rem", color: "#4B5563" }}>
             Use the button above to book your free consultation. For other
             inquiries, fill out the form below and we&apos;ll get back to you
@@ -351,26 +378,26 @@ export default function ContactForm() {
             </div>
 
             <div style={{ marginTop: "1.5rem" }}>
-              <Field label="Subject" error={errors.subject}>
+              <Field label="Subject" required error={errors.subject}>
                 <input
                   type="text"
                   name="subject"
                   value={form.subject}
                   onChange={handleChange}
                   placeholder="Subject"
+                  required
                   style={{ ...inputStyle, borderColor: errors.subject ? "#DC2626" : "#D1D5DB" }}
                 />
               </Field>
             </div>
 
             <div style={{ marginTop: "1.5rem" }}>
-              <Field label="Message" required error={errors.message}>
+              <Field label="Message" error={errors.message}>
                 <textarea
                   name="message"
                   value={form.message}
                   onChange={handleChange}
                   placeholder="Message"
-                  required
                   rows={6}
                   style={{
                     ...inputStyle,
@@ -481,6 +508,15 @@ function FacebookIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
       <path d="M14.5 8.5h2V5.5h-2c-2.2 0-4 1.8-4 4v2H8.5v3H10.5v7h3v-7h2.2l.5-3H13.5v-2c0-.55.45-1 1-1Z" />
+    </svg>
+  );
+}
+
+function YoutubeIcon(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
+      <path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 001.46 6.42 29 29 0 001 12a29 29 0 00.46 5.58 2.78 2.78 0 001.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.96A29 29 0 0023 12a29 29 0 00-.46-5.58z" />
+      <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="#fff" />
     </svg>
   );
 }

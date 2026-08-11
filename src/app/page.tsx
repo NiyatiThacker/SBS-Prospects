@@ -7,8 +7,6 @@ import WhyChooseUs from "@/components/sections/home/WhyChooseSbs";
 import Testimonials from "@/components/sections/home/Testimonials";
 import FAQSection from "@/components/sections/home/FAQSection";
 import CTABanner from "@/components/sections/home/CTABanner";
-import WhatsAppFloat from "@/components/ui/WhatsAppFloat";
-
 
 export default function HomePage() {
   return (
@@ -22,7 +20,6 @@ export default function HomePage() {
       <Testimonials />
       <FAQSection />
       <CTABanner />
-      <WhatsAppFloat />
     </main>
   );
 }

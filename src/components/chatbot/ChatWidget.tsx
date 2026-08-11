@@ -92,6 +92,7 @@ export default function ChatWidget({ onClose }: ChatWidgetProps) {
 
   return (
     <motion.div
+      id="sbs-chat-widget"
       initial={{ opacity: 0, scale: 0.1, y: 100, x: 50 }}
       animate={{ opacity: 1, scale: 1, y: 0, x: 0 }}
       exit={{ opacity: 0, scale: 0.1, y: 100, x: 50 }}
@@ -284,6 +285,12 @@ export default function ChatWidget({ onClose }: ChatWidgetProps) {
           </div>
         </>
       )}
+
+      <style>{`
+        #sbs-chat-widget, #sbs-chat-widget * { cursor: default !important; }
+        #sbs-chat-widget button, #sbs-chat-widget a, #sbs-chat-widget [role="button"] { cursor: pointer !important; }
+        #sbs-chat-widget input, #sbs-chat-widget textarea { cursor: text !important; }
+      `}</style>
     </motion.div>
   );
 }

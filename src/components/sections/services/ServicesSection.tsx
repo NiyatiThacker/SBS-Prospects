@@ -127,11 +127,12 @@ export default function ServicesSection() {
         const bg = isEven ? "#FFFFFF" : "#f5edde";
 
         let rowId = "";
-        if (service.title.includes("TRAINING")) {
-          rowId = "training-courses";
-        } else if (service.title.includes("CONSULTANCY")) {
-          rowId = "hr-consultancy";
-        }
+        if (service.title.includes("TRAINING")) rowId = "training-courses";
+        else if (service.title.includes("MBA")) rowId = "mba-skills";
+        else if (service.title.includes("HR CONSULTANCY")) rowId = "hr-consultancy";
+        else if (service.title.includes("CAREER")) rowId = "career-guidance";
+        else if (service.title.includes("RECRUITMENT")) rowId = "recruitment-support";
+        else if (service.title.includes("INTERNSHIP")) rowId = "internships";
 
         return (
           <div key={service.number} id={rowId} style={{ backgroundColor: bg, scrollMarginTop: "64px" }}>
