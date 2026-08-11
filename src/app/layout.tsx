@@ -6,6 +6,7 @@ import { Playfair_Display, Inter } from "next/font/google";
 // IMPORT ADD //
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import ChatbotFloat from "@/components/ui/ChatbotFloat";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -48,6 +49,9 @@ export default function RootLayout({
 
         {/* FOOTER ADD */}
         <Footer />
+
+        {/* CHATBOT FLOAT */}
+        <ChatbotFloat />
       </body>
     </html>
   );
