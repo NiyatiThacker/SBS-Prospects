@@ -4,9 +4,7 @@ import "./globals.css";
 import { Playfair_Display, Inter } from "next/font/google";
 
 // IMPORT ADD //
-import Navbar from "@/components/layout/Navbar";
-import Footer from "@/components/layout/Footer";
-import ChatbotFloat from "@/components/ui/ChatbotFloat";
+import LayoutWrapper from "@/components/layout/LayoutWrapper";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -41,17 +39,9 @@ export default function RootLayout({
           antialiased bg-sbs-cream text-sbs-charcoal
         `}
       >
-        {/* NAVBAR ADD */}
-        <Navbar />
-
-        {/* PAGE CONTENT */}
-        <main>{children}</main>
-
-        {/* FOOTER ADD */}
-        <Footer />
-
-        {/* CHATBOT FLOAT */}
-        <ChatbotFloat />
+        <LayoutWrapper>
+          {children}
+        </LayoutWrapper>
       </body>
     </html>
   );

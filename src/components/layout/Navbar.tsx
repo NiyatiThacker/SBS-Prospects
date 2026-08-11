@@ -10,6 +10,7 @@ const NAV_LINKS = [
   { label: "Services", href: "/services" },
   { label: "Training & Courses", href: "/services#training-courses" },
   { label: "HR Consultancy", href: "/services#hr-consultancy" },
+  { label: "HR360 Portal", href: "/portal" },
   { label: "Contact", href: "/contact" },
 ];
 
