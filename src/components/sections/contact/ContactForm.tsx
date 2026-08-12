@@ -158,9 +158,8 @@ export default function ContactForm() {
     setStatus("sending");
 
     const scriptUrl = process.env.NEXT_PUBLIC_CONTACT_SCRIPT_URL;
-    const spreadsheetId = process.env.NEXT_PUBLIC_SPREADSHEET_ID;
 
-    if (!scriptUrl || !spreadsheetId) {
+    if (!scriptUrl) {
       console.error("Environment variables are missing.");
       setStatus("idle");
       alert("System configuration error. Please check your .env file.");
@@ -171,11 +170,15 @@ export default function ContactForm() {
       const response = await fetch(scriptUrl, {
         method: "POST",
         headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
+          "Content-Type": "text/plain;charset=utf-8",
         },
-        body: new URLSearchParams({
-          ...form,
-          spreadsheetId: spreadsheetId,
+        body: JSON.stringify({
+          name: form.name,
+          company: form.company || "N/A",
+          phone: form.phone,
+          email: form.email,
+          subject: form.subject || "General Inquiry",
+          message: form.message,
         }),
       });
 
@@ -187,9 +190,9 @@ export default function ContactForm() {
         setForm(initialForm);
         setErrors({});
       } else {
-        console.error("Server Error:", data.error);
+        console.error("Server Error:", data.message || data.error);
         setStatus("idle");
-        alert("Google Sheets Error: " + data.error);
+        alert("Google Sheets Error: " + (data.message || data.error));
       }
     } catch (error) {
       console.error("Fetch Error:", error);
