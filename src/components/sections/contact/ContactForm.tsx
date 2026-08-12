@@ -16,6 +16,7 @@ const socialLinks = [
   { name: "Instagram", href: "https://www.instagram.com/sbs.prospects/", icon: InstagramIcon },
   { name: "X", href: "https://x.com/services5272", icon: XIcon },
   { name: "Facebook", href: "https://www.facebook.com/share/1ETodRg3J2/", icon: FacebookIcon },
+  { name: "YouTube", href: "https://youtube.com/@sbsprospects?si=zz2EUNcw8B8O4c4K", icon: YoutubeIcon },
 ];
 
 type FormState = {
@@ -297,30 +298,9 @@ export default function ContactForm() {
             >
               SEND A MESSAGE
             </h2>
-            <a
-              href="https://youtube.com/@sbsprospects?si=zz2EUNcw8B8O4c4K"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                width: "2.5rem",
-                height: "2.5rem",
-                borderRadius: "50%",
-                background: "#E9C46A",
-                color: "#16162B",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                transition: "all 0.3s",
-              }}
-              className="hover:scale-110"
-              title="YouTube"
-            >
-              <YoutubeIcon style={{ width: "1.25rem", height: "1.25rem" }} />
-            </a>
           </div>
           <p style={{ marginTop: "1rem", maxWidth: "36rem", color: "#4B5563" }}>
-            Use the button above to book your free consultation. For other
-            inquiries, fill out the form below and we&apos;ll get back to you
+            For inquiries, fill out the form below and we&apos;ll get back to you
             within 48 hours.
           </p>
 
