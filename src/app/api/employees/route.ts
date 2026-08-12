@@ -5,18 +5,20 @@ import { createClient } from '@supabase/supabase-js';
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || '';
 const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY || '';
 
-const supabaseAdmin = createClient(supabaseUrl, supabaseServiceKey, {
-  auth: {
-    autoRefreshToken: false,
-    persistSession: false,
-  },
-});
+const supabaseAdmin = supabaseUrl && supabaseServiceKey
+  ? createClient(supabaseUrl, supabaseServiceKey, {
+      auth: {
+        autoRefreshToken: false,
+        persistSession: false,
+      },
+    })
+  : null;
 
 export async function POST(req: Request) {
   try {
-    if (!supabaseServiceKey) {
+    if (!supabaseAdmin) {
       return NextResponse.json(
-        { error: 'Server configuration error: Missing Service Role Key' },
+        { error: 'Server configuration error: Missing Supabase URL or Service Role Key' },
         { status: 500 }
       );
     }
@@ -73,6 +75,10 @@ export async function DELETE(req: Request) {
     const { searchParams } = new URL(req.url);
     const id = searchParams.get('id');
 
+    if (!supabaseAdmin) {
+      return NextResponse.json({ error: 'Server configuration error' }, { status: 500 });
+    }
+
     if (!id) {
       return NextResponse.json({ error: 'Missing employee ID' }, { status: 400 });
     }
@@ -98,6 +104,10 @@ export async function PATCH(req: Request) {
   try {
     const body = await req.json();
     const { id, role, department } = body;
+
+    if (!supabaseAdmin) {
+      return NextResponse.json({ error: 'Server configuration error' }, { status: 500 });
+    }
 
     if (!id || (!role && !department)) {
       return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
